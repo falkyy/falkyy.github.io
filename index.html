@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OddCllaw.inc</title>
+<meta name="description" content="OddCllaw.inc — mobile games for Android.">
+<style>
+  :root {
+    --bg: #0e0b1a;
+    --card: #1b1630;
+    --text: #f1f0f7;
+    --dim: #a9a4c2;
+    --accent: #3fbf6f;
+    --edge: #2c2547;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+  main { width: 100%; max-width: 640px; padding: 56px 16px 40px; }
+  h1 { font-size: 2.2rem; margin: 0 0 4px; letter-spacing: 0.5px; }
+  .tagline { color: var(--dim); margin: 0 0 40px; }
+  h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; color: var(--dim); margin: 0 0 14px; }
+  .game {
+    display: block;
+    background: var(--card);
+    border: 1px solid var(--edge);
+    border-radius: 14px;
+    padding: 18px 20px;
+    color: inherit;
+    text-decoration: none;
+    margin-bottom: 14px;
+    transition: border-color 0.15s;
+  }
+  .game:hover, .game:focus-visible { border-color: var(--accent); }
+  .game strong { font-size: 1.2rem; }
+  .game span { display: block; color: var(--dim); font-size: 0.95rem; margin-top: 2px; }
+  .game em { display: inline-block; margin-top: 10px; color: var(--accent); font-style: normal; font-weight: 600; }
+  footer { margin-top: 44px; color: var(--dim); font-size: 0.95rem; }
+  footer a { color: var(--text); }
+</style>
+</head>
+<body>
+<main>
+  <h1>OddCllaw.inc</h1>
+  <p class="tagline">Mobile games for Android.</p>
+
+  <h2>Games</h2>
+  <a class="game" href="https://play.google.com/store/apps/details?id=com.oddcllaw.inc.ludomania">
+    <strong>LudoMania</strong>
+    <span>The classic board game, with bots, local Wi-Fi and online play.</span>
+    <em>Get it on Google Play →</em>
+  </a>
+
+  <footer>
+    Contact: <a href="mailto:falky.i.am@gmail.com">falky.i.am@gmail.com</a>
+  </footer>
+</main>
+</body>
+</html>
