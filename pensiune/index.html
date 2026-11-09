@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vârful Lin Guesthouse — Mountain stays in the Jiu Valley</title>
+<meta name="description" content="A small family guesthouse at the foot of the Parâng Mountains. Cozy rooms, homemade breakfast, hiking and ski slopes nearby.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f6f1e7; --paper:#fffdf8; --forest:#1f3a2e; --forest-2:#2d5141;
+    --amber:#c8893b; --ink:#23282a; --muted:#6b6f6a; --line:#e4dccb;
+    --serif:'Fraunces','GFS Baskerville',Georgia,serif;
+    --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1140px,92%);margin-inline:auto}
+  h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.15;color:var(--forest)}
+  .eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.5rem;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .15s,background .15s;cursor:pointer;border:0}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-amber{background:var(--amber);color:#fff}
+  .btn-amber:hover{background:#b57828}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.7);color:#fff}
+
+  /* nav */
+  header{position:absolute;inset:0 0 auto 0;z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 0}
+  .logo{font-family:var(--serif);font-size:1.45rem;color:#fff;display:flex;align-items:center;gap:.55rem}
+  .logo svg{width:30px;height:30px}
+  .menu{display:flex;gap:2rem;list-style:none;color:rgba(255,255,255,.88);font-size:.95rem;font-weight:500}
+  .menu a:hover{color:#fff}
+  .nav .btn{padding:.6rem 1.2rem}
+  .burger{display:none;background:none;border:0;color:#fff;cursor:pointer}
+
+  /* hero */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:center;color:#fff;overflow:hidden;background:#1b2f3a}
+  .hero-art{position:absolute;inset:0;width:100%;height:100%}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,30,26,.72) 0%,rgba(16,30,26,.25) 60%,transparent)}
+  .hero-text{position:relative;z-index:2;max-width:560px;padding-top:4rem}
+  .hero h1{color:#fff;font-size:clamp(2.6rem,6vw,4.4rem);margin:.8rem 0 1.2rem}
+  .hero p{font-size:1.12rem;color:rgba(255,255,255,.85);max-width:470px}
+  .hero-cta{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+
+  /* booking bar */
+  .booking{position:relative;z-index:3;margin-top:-56px}
+  .booking form{background:var(--paper);border-radius:18px;box-shadow:0 20px 50px rgba(31,58,46,.15);display:grid;grid-template-columns:repeat(4,1fr) auto;gap:1rem;padding:1.3rem 1.5rem;align-items:end}
+  .field label{display:block;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.35rem}
+  .field input,.field select{width:100%;border:1px solid var(--line);border-radius:10px;padding:.7rem .8rem;font:inherit;background:#fff;color:var(--ink)}
+  .booking .msg{grid-column:1/-1;color:var(--forest-2);font-weight:500;display:none}
+
+  section{padding:6rem 0}
+  .section-head{max-width:620px;margin-bottom:3rem}
+  .section-head h2{font-size:clamp(2rem,4vw,2.8rem);margin:.6rem 0 .8rem}
+  .section-head p{color:var(--muted);font-size:1.05rem}
+
+  /* about */
+  .about{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center}
+  .about-art{border-radius:22px;overflow:hidden;aspect-ratio:4/3.4;box-shadow:0 18px 40px rgba(0,0,0,.12)}
+  .stats{display:flex;gap:2.5rem;margin-top:2rem}
+  .stat b{display:block;font-family:var(--serif);font-size:2.2rem;color:var(--forest)}
+  .stat span{color:var(--muted);font-size:.9rem}
+
+  /* rooms */
+  .rooms{background:var(--paper)}
+  .room-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+  .room{background:var(--cream);border-radius:18px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .room:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(31,58,46,.12)}
+  .room-img{aspect-ratio:16/11}
+  .room-body{padding:1.4rem 1.5rem 1.6rem}
+  .room h3{font-size:1.35rem}
+  .room ul{list-style:none;display:flex;gap:1rem;color:var(--muted);font-size:.86rem;margin:.6rem 0 1.1rem;flex-wrap:wrap}
+  .room-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:1rem}
+  .price{font-family:var(--serif);font-size:1.5rem;color:var(--forest)}
+  .price small{font-family:var(--sans);font-size:.8rem;color:var(--muted)}
+  .room-foot a{font-weight:600;color:var(--amber);font-size:.92rem}
+
+  /* experiences */
+  .exp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+  .exp{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:1.8rem 1.5rem}
+  .exp .ico{width:48px;height:48px;border-radius:12px;background:var(--forest);display:grid;place-items:center;margin-bottom:1.1rem}
+  .exp .ico svg{width:24px;height:24px;stroke:#f3d5a9}
+  .exp h3{font-size:1.15rem;margin-bottom:.4rem}
+  .exp p{color:var(--muted);font-size:.93rem}
+
+  /* reviews */
+  .reviews{background:var(--forest);color:#fff}
+  .reviews .section-head h2{color:#fff}
+  .reviews .section-head p{color:rgba(255,255,255,.7)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .rev{background:var(--forest-2);border-radius:16px;padding:1.8rem}
+  .stars{color:#f0b55c;letter-spacing:2px;margin-bottom:.8rem}
+  .rev p{color:rgba(255,255,255,.88);font-size:.98rem;margin-bottom:1.2rem}
+  .rev b{font-weight:600}
+  .rev span{display:block;font-size:.85rem;color:rgba(255,255,255,.55)}
+
+  /* contact */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+  .contact-list{list-style:none;display:grid;gap:1.2rem;margin-top:1.5rem}
+  .contact-list li{display:flex;gap:1rem;align-items:flex-start}
+  .contact-list svg{width:22px;height:22px;stroke:var(--amber);flex:none;margin-top:3px}
+  .map{border-radius:20px;overflow:hidden;min-height:320px;background:#dfe6d6}
+
+  footer{background:#17291f;color:rgba(255,255,255,.6);padding:2.2rem 0;font-size:.88rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+  @media (max-width:900px){
+    .menu,.nav .btn{display:none}
+    .burger{display:block}
+    .menu.open{display:flex;flex-direction:column;position:absolute;top:70px;right:4%;background:var(--forest);padding:1.2rem 1.6rem;border-radius:14px;gap:1rem}
+    .booking form{grid-template-columns:1fr 1fr}
+    .booking form .btn{grid-column:1/-1;justify-content:center}
+    .about,.contact{grid-template-columns:1fr}
+    .room-grid,.rev-grid{grid-template-columns:1fr}
+    .exp-grid{grid-template-columns:1fr 1fr}
+    section{padding:4.5rem 0}
+  }
+  @media (max-width:520px){ .exp-grid,.booking form{grid-template-columns:1fr} .stats{gap:1.5rem} }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap nav">
+    <a href="#" class="logo">
+      <svg viewBox="0 0 32 32" fill="none"><path d="M3 26 13 9l6 10 3-5 7 12H3z" fill="#c8893b"/><path d="M13 9l3 5-3-1-2 2z" fill="#fff"/></svg>
+      Vârful Lin
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#rooms">Rooms</a></li>
+      <li><a href="#experiences">Experiences</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#book" class="btn btn-amber">Book a stay</a>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">
+      <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </nav>
+</header>
+
+<section class="hero" style="padding:0">
+  <svg class="hero-art" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#2a3f5a"/><stop offset=".5" stop-color="#d98d5f"/><stop offset=".8" stop-color="#f4c88f"/>
+      </linearGradient>
+      <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7d6f86"/><stop offset="1" stop-color="#a98a87"/></linearGradient>
+      <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4c4f62"/><stop offset="1" stop-color="#6c6470"/></linearGradient>
+      <linearGradient id="m3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2d3d3c"/><stop offset="1" stop-color="#23302e"/></linearGradient>
+      <radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff2cf"/><stop offset=".4" stop-color="#ffd58a" stop-opacity=".9"/><stop offset="1" stop-color="#ffb46b" stop-opacity="0"/></radialGradient>
+      <g id="pine"><path d="M0 0 L-14 30 H-6 L-20 58 H-8 L-26 90 H26 L8 58 H20 L6 30 H14Z"/><rect x="-3" y="88" width="6" height="12"/></g>
+    </defs>
+    <rect width="1440" height="900" fill="url(#sky)"/>
+    <circle cx="1020" cy="470" r="230" fill="url(#sun)"/>
+    <circle cx="1020" cy="470" r="46" fill="#fff4d6"/>
+    <path d="M0 520 L160 400 L290 470 L460 330 L620 450 L780 360 L930 440 L1100 320 L1270 430 L1440 370 V900 H0Z" fill="url(#m1)" opacity=".9"/>
+    <path d="M1100 320 L1060 350 L1085 348 L1100 334 L1118 352 L1140 346Z M460 330 L425 362 L450 356 L462 344 L480 360 L500 358Z" fill="#f3e6e0" opacity=".8"/>
+    <path d="M0 600 L130 520 L270 580 L420 480 L600 590 L760 500 L930 590 L1120 490 L1300 580 L1440 520 V900 H0Z" fill="url(#m2)"/>
+    <path d="M0 700 L200 640 L420 690 L640 630 L860 700 L1080 650 L1300 700 L1440 660 V900 H0Z" fill="url(#m3)"/>
+    <g fill="#18241f">
+      <use href="#pine" transform="translate(80 640) scale(1.2)"/><use href="#pine" transform="translate(150 670) scale(.9)"/>
+      <use href="#pine" transform="translate(1250 630) scale(1.3)"/><use href="#pine" transform="translate(1330 660) scale(1)"/>
+      <use href="#pine" transform="translate(1390 620) scale(1.4)"/><use href="#pine" transform="translate(1180 680) scale(.8)"/>
+      <use href="#pine" transform="translate(900 690) scale(.7)"/><use href="#pine" transform="translate(960 700) scale(.6)"/>
+    </g>
+    <!-- cabin -->
+    <g transform="translate(1040 690)">
+      <path d="M-70 0 L0 -60 L70 0Z" fill="#3a2a22"/>
+      <rect x="-58" y="0" width="116" height="62" fill="#5b4033"/>
+      <rect x="-40" y="16" width="22" height="20" fill="#ffc86b"/><rect x="18" y="16" width="22" height="20" fill="#ffc86b"/>
+      <rect x="-10" y="28" width="20" height="34" fill="#2a1d17"/>
+      <rect x="30" y="-48" width="12" height="26" fill="#3a2a22"/>
+    </g>
+    <path d="M0 780 L1440 760 V900 H0Z" fill="#141f1b"/>
+  </svg>
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow">Jiu Valley · Parâng Mountains</span>
+      <h1>Wake up above the clouds.</h1>
+      <p>A family-run guesthouse with seven cozy rooms, homemade breakfast and the mountains right outside your window.</p>
+      <div class="hero-cta">
+        <a href="#rooms" class="btn btn-amber">See our rooms</a>
+        <a href="#experiences" class="btn btn-ghost">Things to do</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap booking" id="book">
+  <form onsubmit="event.preventDefault();this.querySelector('.msg').style.display='block'">
+    <div class="field"><label>Check-in</label><input type="date" required></div>
+    <div class="field"><label>Check-out</label><input type="date" required></div>
+    <div class="field"><label>Guests</label><select><option>2 adults</option><option>1 adult</option><option>2 adults, 1 child</option><option>4 adults</option></select></div>
+    <div class="field"><label>Room</label><select><option>Any room</option><option>Pine Room</option><option>Family Loft</option><option>Summit Suite</option></select></div>
+    <button class="btn btn-amber" type="submit">Check availability</button>
+    <p class="msg">Thank you! We'll confirm availability by email within a few hours.</p>
+  </form>
+</div>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="about-art">
+      <svg viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+        <rect width="400" height="340" fill="#e9dcc3"/>
+        <rect x="0" y="0" width="400" height="200" fill="#c9d8d3"/>
+        <path d="M0 200 L90 120 L170 170 L260 90 L340 150 L400 120 V200Z" fill="#8ea39b"/>
+        <rect x="0" y="200" width="400" height="140" fill="#7a5a43"/>
+        <rect x="0" y="196" width="400" height="10" fill="#5c412f"/>
+        <rect x="40" y="240" width="320" height="16" rx="4" fill="#4a3426"/>
+        <rect x="60" y="256" width="10" height="60" fill="#4a3426"/><rect x="330" y="256" width="10" height="60" fill="#4a3426"/>
+        <ellipse cx="140" cy="236" rx="34" ry="8" fill="#f6efe2"/>
+        <path d="M120 220 q20 -14 40 0 v14 h-40z" fill="#c8893b"/>
+        <rect x="220" y="210" width="26" height="28" rx="4" fill="#f6efe2"/><path d="M246 216 q12 4 0 16" stroke="#f6efe2" stroke-width="4" fill="none"/>
+        <path d="M228 200 q4 -10 0 -18 M238 200 q4 -10 0 -18" stroke="#fff" stroke-width="2" fill="none" opacity=".7"/>
+        <circle cx="290" cy="230" r="12" fill="#b23a3a"/><circle cx="305" cy="232" r="10" fill="#d0503f"/>
+        <rect x="0" y="0" width="400" height="340" fill="none" stroke="#5c412f" stroke-width="18"/>
+        <rect x="196" y="0" width="8" height="200" fill="#5c412f"/>
+      </svg>
+    </div>
+    <div>
+      <span class="eyebrow">Our story</span>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);margin:.6rem 0 1rem">Three generations of mountain hospitality</h2>
+      <p style="color:var(--muted);margin-bottom:1rem">We built Vârful Lin with our own hands, beam by beam, on the land where our grandparents raised sheep. Today we welcome hikers, skiers and families who want a quiet place to slow down.</p>
+      <p style="color:var(--muted)">Every morning starts with fresh bread, cheese from local shepherds and jams we make every summer. Every evening ends by the fire.</p>
+      <div class="stats">
+        <div class="stat"><b>7</b><span>Cozy rooms</span></div>
+        <div class="stat"><b>4.9</b><span>Guest rating</span></div>
+        <div class="stat"><b>12 km</b><span>To the ski slopes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rooms" id="rooms">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Rooms</span>
+      <h2>Rest easy, mountain style</h2>
+      <p>Pine wood, wool blankets and big windows. Every room has a private bathroom, free Wi-Fi and breakfast included.</p>
+    </div>
+    <div class="room-grid">
+      <article class="room">
+        <svg class="room-img" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="220" fill="#d9c3a0"/><rect x="180" y="30" width="100" height="90" fill="#9fbccc"/><path d="M180 100 l30-30 25 20 20-15 25 25v20H180z" fill="#6f8a7e"/><rect x="180" y="30" width="100" height="90" fill="none" stroke="#7a5638" stroke-width="8"/>
+          <rect x="30" y="120" width="190" height="60" rx="6" fill="#f3ece0"/><rect x="30" y="110" width="190" height="16" rx="6" fill="#b65b45"/><rect x="40" y="100" width="44" height="20" rx="8" fill="#fff"/><rect x="94" y="100" width="44" height="20" rx="8" fill="#fff"/>
+          <rect x="22" y="70" width="8" height="120" fill="#7a5638"/><rect x="0" y="190" width="320" height="30" fill="#a07a55"/>
+        </svg>
+        <div class="room-body">
+          <h3>Pine Room</h3>
+          <ul><li>2 guests</li><li>Double bed</li><li>Mountain view</li></ul>
+          <div class="room-foot"><span class="price">€55 <small>/ night</small></span><a href="#book">Book →</a></div>
+        </div>
+      </article>
+      <article class="room">
+        <svg class="room-img" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="220" fill="#cdb48f"/><path d="M0 0 L160 -40 L320 0 V40 L160 0 L0 40Z" fill="#8d6744"/><rect x="40" y="40" width="70" height="60" fill="#a9c3cf"/><rect x="40" y="40" width="70" height="60" fill="none" stroke="#7a5638" stroke-width="6"/>
+          <rect x="20" y="130" width="130" height="55" rx="6" fill="#f3ece0"/><rect x="20" y="122" width="130" height="14" rx="6" fill="#4f7a64"/>
+          <rect x="175" y="140" width="120" height="45" rx="6" fill="#f3ece0"/><rect x="175" y="132" width="120" height="14" rx="6" fill="#c8893b"/><rect x="200" y="60" width="80" height="8" fill="#7a5638"/><rect x="200" y="60" width="8" height="70" fill="#7a5638"/>
+          <rect x="0" y="190" width="320" height="30" fill="#9c7650"/>
+        </svg>
+        <div class="room-body">
+          <h3>Family Loft</h3>
+          <ul><li>4 guests</li><li>2 beds + loft</li><li>Balcony</li></ul>
+          <div class="room-foot"><span class="price">€85 <small>/ night</small></span><a href="#book">Book →</a></div>
+        </div>
+      </article>
+      <article class="room">
+        <svg class="room-img" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="220" fill="#3b3330"/><rect x="20" y="20" width="160" height="120" fill="#e8a46b"/><path d="M20 110 l40-40 35 25 30-35 55 50v30H20z" fill="#4c4c5c"/><rect x="20" y="20" width="160" height="120" fill="none" stroke="#2a221e" stroke-width="8"/>
+          <rect x="210" y="70" width="70" height="80" rx="6" fill="#5a4038"/><path d="M225 150 q20 -60 40 0" fill="#ff9c4a"/><path d="M235 150 q10 -35 20 0" fill="#ffd27a"/>
+          <rect x="30" y="160" width="150" height="40" rx="8" fill="#a5543e"/><rect x="0" y="200" width="320" height="20" fill="#2a221e"/>
+        </svg>
+        <div class="room-body">
+          <h3>Summit Suite</h3>
+          <ul><li>2 guests</li><li>Fireplace</li><li>Hot tub</li></ul>
+          <div class="room-foot"><span class="price">€120 <small>/ night</small></span><a href="#book">Book →</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experiences">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Experiences</span>
+      <h2>Something for every season</h2>
+      <p>Ask us at breakfast and we'll plan your day: trails, guides, gear and the best places to eat nearby.</p>
+    </div>
+    <div class="exp-grid">
+      <div class="exp"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 20 6-12 4 7 2-3 6 8z"/></svg></div><h3>Hiking</h3><p>Marked trails start 200 m from our door, from easy walks to the Parâng ridge.</p></div>
+      <div class="exp"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/></svg></div><h3>Skiing</h3><p>The slopes are a 15-minute drive away. Free ski storage and boot dryers.</p></div>
+      <div class="exp"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18M5 11a7 7 0 0 0 14 0M12 4v3M8 5l1 2M16 5l-1 2"/></svg></div><h3>Local food</h3><p>Traditional dinners on request: polenta, sheep cheese, soups and plum brandy.</p></div>
+      <div class="exp"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 6 5 10a5 5 0 0 1-10 0c0-4 2-6 5-10z"/></svg></div><h3>Campfire nights</h3><p>Grill, fire pit and stars. Wood and blankets are on us.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Reviews</span>
+      <h2>What our guests say</h2>
+      <p>Sample reviews for this demo design.</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev"><div class="stars">★★★★★</div><p>“The breakfast alone is worth the trip. Quiet, clean and the view from the balcony is unreal.”</p><b>Sample guest</b><span>Family trip</span></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>“Perfect base for hiking. The hosts gave us a hand-drawn map and the best tips.”</p><b>Sample guest</b><span>Hiking weekend</span></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>“We came for skiing and stayed for the fireplace. Already booked again for next winter.”</p><b>Sample guest</b><span>Ski holiday</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div>
+      <span class="eyebrow">Contact</span>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);margin:.6rem 0 .8rem">Come find us</h2>
+      <p style="color:var(--muted)">Free parking on site. In winter we can pick you up from the train station.</p>
+      <ul class="contact-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Mountain Road 12, Jiu Valley, Romania</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>+40 700 000 000</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>hello@example.com</span></li>
+      </ul>
+    </div>
+    <div class="map">
+      <svg viewBox="0 0 500 340" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+        <rect width="500" height="340" fill="#e4e9dc"/>
+        <path d="M0 260 C120 220 160 280 260 240 S420 180 500 210" stroke="#b9cbe0" stroke-width="18" fill="none"/>
+        <path d="M-10 120 C100 140 200 90 300 130 S450 160 520 120" stroke="#fff" stroke-width="10" fill="none"/>
+        <path d="M200 -10 C220 100 180 200 230 350" stroke="#fff" stroke-width="7" fill="none"/>
+        <g fill="#c7d5b8"><circle cx="80" cy="60" r="40"/><circle cx="400" cy="70" r="55"/><circle cx="380" cy="290" r="45"/><circle cx="90" cy="300" r="30"/></g>
+        <circle cx="300" cy="130" r="26" fill="#c8893b" opacity=".25"/>
+        <path d="M300 85 a18 18 0 0 1 18 18 c0 14-18 30-18 30 s-18-16-18-30 a18 18 0 0 1 18-18z" fill="#1f3a2e"/>
+        <circle cx="300" cy="103" r="6" fill="#f3d5a9"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Vârful Lin Guesthouse</span>
+    <span>Demo website · design &amp; development by OddCllaw</span>
+  </div>
+</footer>
+
+</body>
+</html>
