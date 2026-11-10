@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cuptorul cu pizza — Lupeni</title>
+<meta name="theme-color" content="#b3261e">
+<meta name="description" content="Machetă de site pentru Cuptorul cu pizza, Lupeni: meniu, program, comenzi la telefon.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cuptorul cu pizza – Lupeni">
+<meta property="og:description" content="Pizza care te face să mai comanzi una. Machetă de site realizată de Andrei.">
+<meta property="og:url" content="https://falkyy.github.io/demo-cuptorul-cu-pizza/">
+<meta property="og:image" content="https://falkyy.github.io/demo-cuptorul-cu-pizza/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--cream:#fbf4e6;--paper:#fffaf0;--red:#b3261e;--red2:#8e1c16;--green:#2f6b3a;--ink:#2a1a12;--muted:#7a6553;--line:#ead9c0;--crust:#d99a4e}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55}
+  a{color:inherit;text-decoration:none}
+  .serif{font-family:Georgia,"Times New Roman",serif}
+  .draft{background:var(--ink);color:#ffd77a;text-align:center;font-weight:700;font-size:12px;padding:7px 10px}
+  .flag{height:6px;background:linear-gradient(90deg,var(--green) 0 33.3%,#fff 33.3% 66.6%,var(--red) 66.6%)}
+
+  nav{position:sticky;top:0;z-index:10;background:rgba(251,244,230,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .in{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo .mark{width:40px;height:40px;border-radius:50%;background:var(--red);display:grid;place-items:center;font-size:20px}
+  .logo b{font-size:19px;line-height:1}
+  .logo small{display:block;color:var(--muted);font:600 11px/1.4 system-ui,sans-serif;letter-spacing:1.5px;text-transform:uppercase}
+  nav .call{background:var(--red);color:#fff;font-weight:800;font-size:14px;padding:10px 14px;border-radius:30px}
+
+  .hero{position:relative;overflow:hidden;padding:44px 18px 46px;background:
+        radial-gradient(circle at 80% 40%,rgba(217,154,78,.35),transparent 55%),
+        radial-gradient(circle at 0% 100%,rgba(179,38,30,.10),transparent 50%),var(--cream)}
+  .hero .in{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center}
+  .tag{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);padding:7px 12px;border-radius:30px;font-weight:700;font-size:13px;margin-bottom:16px}
+  .tag b{color:#e0a400}
+  .hero h1{font-size:clamp(44px,11vw,82px);line-height:.95;color:var(--red2)}
+  .hero h1 em{display:block;color:var(--ink);font-style:italic;font-weight:400}
+  .hero p{font-size:18px;color:var(--muted);margin:18px 0 24px;max-width:460px}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:16px;padding:15px 20px;border-radius:14px}
+  .btn.r{background:var(--red);color:#fff;box-shadow:0 8px 22px rgba(179,38,30,.3)}
+  .btn.g{background:#fff;border:2px solid var(--line)}
+  .pizza{width:100%;max-width:400px;justify-self:center;filter:drop-shadow(0 26px 34px rgba(90,40,10,.35))}
+  @media(max-width:760px){.hero .in{grid-template-columns:1fr}.pizza{max-width:290px;order:-1}}
+
+  section{padding:60px 18px}
+  .wrap{max-width:980px;margin:0 auto}
+  .eyebrow{color:var(--red);font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+  h2{font-size:clamp(32px,8vw,50px);line-height:1.05;color:var(--ink)}
+  .sub{color:var(--muted);margin-top:10px;max-width:560px}
+
+  .menu{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .tabs{display:flex;gap:8px;margin:24px 0 18px;overflow-x:auto}
+  .tabs button{flex:none;border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:700;font-size:14px;padding:10px 16px;border-radius:30px;cursor:pointer}
+  .tabs button.on{background:var(--red);color:#fff;border-color:var(--red)}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+  .item{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;gap:14px;align-items:flex-start}
+  [data-cat]{display:none}[data-cat].show{display:flex}
+  .item .ic{flex:none;width:52px;height:52px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-size:28px}
+  .item h3{font-size:19px;display:flex;justify-content:space-between;gap:10px}
+  .item h3 .p{color:var(--red);white-space:nowrap;font-family:system-ui,sans-serif;font-size:16px}
+  .item p{color:var(--muted);font-size:14px;margin-top:3px}
+  .badge{display:inline-block;background:var(--green);color:#fff;font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;margin-top:8px}
+  .badge.r{background:var(--red)}
+  .note{color:var(--muted);font-size:13px;text-align:center;margin-top:18px}
+
+  .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  .feat .c{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+  .feat .ic{font-size:32px}
+  .feat h4{font-size:20px;margin:8px 0 4px}
+  .feat p{color:var(--muted);font-size:14px}
+  @media(max-width:760px){.feat{grid-template-columns:1fr}}
+
+  .reviews{background:var(--red);color:#fff;text-align:center}
+  .reviews h2{color:#fff}
+  .big{font-size:84px;line-height:1;margin:14px 0 2px}
+  .stars{color:#ffd35a;font-size:28px;letter-spacing:3px}
+  .reviews p{opacity:.9;margin-top:8px}
+  .reviews .btn{margin-top:20px;background:#fff;color:var(--red)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+  .box{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+  .box h3{font-size:22px;margin-bottom:12px}
+  table{width:100%;border-collapse:collapse}
+  td{padding:8px 0;border-bottom:1px solid var(--line)}
+  td:last-child{text-align:right;font-weight:700}
+  .map{display:block;margin-top:14px;border-radius:14px;aspect-ratio:16/9;position:relative;overflow:hidden;
+       background:repeating-linear-gradient(35deg,#efe4cf 0 36px,#f6edda 36px 42px);border:1px solid var(--line)}
+  .map .pin{position:absolute;left:50%;top:42%;transform:translate(-50%,-100%);font-size:40px}
+  .map .lbl{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);background:var(--red);color:#fff;font-weight:800;font-size:14px;padding:10px 16px;border-radius:30px;white-space:nowrap}
+  @media(max-width:700px){.visit{grid-template-columns:1fr}}
+
+  footer{text-align:center;padding:36px 18px 100px;color:var(--muted);font-size:14px;background:var(--paper);border-top:1px solid var(--line)}
+  footer .name{font-size:26px;color:var(--red2);margin-bottom:4px}
+  .bar{position:fixed;left:10px;right:10px;bottom:10px;display:none;z-index:20}
+  .bar a{display:block;text-align:center;background:var(--red);color:#fff;font-weight:800;padding:17px;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+  @media(max-width:700px){.bar{display:block}}
+</style>
+</head>
+<body>
+
+<div class="draft">MACHETĂ DEMONSTRATIVĂ realizată de Andrei · meniul, prețurile și pozele se înlocuiesc cu ale voastre</div>
+<div class="flag"></div>
+
+<nav><div class="in">
+  <div class="logo"><div class="mark">🍕</div><b class="serif">Cuptorul cu pizza<small>Lupeni</small></b></div>
+  <a class="call" href="tel:+40734271458">📞 Comandă</a>
+</div></nav>
+
+<header class="hero">
+  <div class="in">
+    <div>
+      <span class="tag"><b>★★★★★</b> 4,7 pe Google</span>
+      <h1 class="serif">Pizza care te face <em>să mai comanzi una.</em></h1>
+      <p>Aluat frământat de mână, blat crocant și ingrediente bune, scoase fierbinți din cuptor. Mănânci la noi sau ți-o aducem acasă, în Lupeni.</p>
+      <div class="cta">
+        <a class="btn r" href="tel:+40734271458">📞 Sună și comandă</a>
+        <a class="btn g" href="#meniu">Vezi meniul</a>
+      </div>
+    </div>
+    <svg class="pizza" viewBox="0 0 400 400" aria-hidden="true">
+      <circle cx="200" cy="200" r="180" fill="#8a5a33"/>
+      <circle cx="200" cy="200" r="170" fill="#d99a4e"/>
+      <circle cx="200" cy="200" r="150" fill="#c0391f"/>
+      <circle cx="200" cy="200" r="144" fill="#f3d27a"/>
+      <g fill="#fbe3a0" opacity=".8"><circle cx="150" cy="140" r="26"/><circle cx="250" cy="250" r="30"/><circle cx="270" cy="150" r="22"/><circle cx="140" cy="260" r="24"/></g>
+      <g fill="#b3261e"><circle cx="160" cy="120" r="17"/><circle cx="240" cy="110" r="16"/><circle cx="290" cy="200" r="17"/><circle cx="230" cy="290" r="17"/><circle cx="130" cy="210" r="16"/><circle cx="200" cy="200" r="16"/><circle cx="160" cy="300" r="14"/></g>
+      <g fill="#8e1c16" opacity=".35"><circle cx="156" cy="116" r="5"/><circle cx="236" cy="106" r="5"/><circle cx="286" cy="196" r="5"/><circle cx="226" cy="286" r="5"/><circle cx="126" cy="206" r="5"/><circle cx="196" cy="196" r="5"/></g>
+      <g fill="#2f6b3a"><ellipse cx="200" cy="150" rx="11" ry="6" transform="rotate(-30 200 150)"/><ellipse cx="260" cy="230" rx="11" ry="6" transform="rotate(20 260 230)"/><ellipse cx="170" cy="240" rx="11" ry="6" transform="rotate(50 170 240)"/><ellipse cx="110" cy="160" rx="10" ry="5" transform="rotate(-10 110 160)"/><ellipse cx="300" cy="140" rx="10" ry="5" transform="rotate(40 300 140)"/></g>
+      <g fill="#2a1a12"><circle cx="215" cy="240" r="5"/><circle cx="120" cy="250" r="5"/><circle cx="275" cy="270" r="5"/><circle cx="185" cy="95" r="5"/></g>
+      <g stroke="#8a5a33" stroke-width="3" opacity=".45"><line x1="200" y1="30" x2="200" y2="370"/><line x1="30" y1="200" x2="370" y2="200"/><line x1="80" y1="80" x2="320" y2="320"/><line x1="320" y1="80" x2="80" y2="320"/></g>
+    </svg>
+  </div>
+</header>
+
+<section id="meniu" class="menu">
+  <div class="wrap">
+    <div class="eyebrow">Meniu</div>
+    <h2 class="serif">Din cuptor, pe masa ta</h2>
+    <p class="sub">Toate pizzele se fac pe loc, la comandă.</p>
+    <div class="tabs" id="tabs">
+      <button class="on" data-t="pizza">Pizza</button>
+      <button data-t="desert">Desert</button>
+      <button data-t="drink">Băuturi</button>
+    </div>
+    <div class="grid" id="grid">
+      <div class="item show" data-cat="pizza"><div class="ic">🍕</div><div style="flex:1"><h3 class="serif">Pizza casei <span class="p">— lei</span></h3><p>Rețeta noastră, cu de toate.</p><span class="badge r">CEA MAI CERUTĂ</span></div></div>
+      <div class="item show" data-cat="pizza"><div class="ic">🍕</div><div style="flex:1"><h3 class="serif">Quattro Stagioni <span class="p">— lei</span></h3><p>Șuncă, ciuperci, ardei, măsline.</p></div></div>
+      <div class="item show" data-cat="pizza"><div class="ic">🍕</div><div style="flex:1"><h3 class="serif">Margherita <span class="p">— lei</span></h3><p>Sos de roșii, mozzarella, busuioc.</p><span class="badge">VEGETARIANĂ</span></div></div>
+      <div class="item show" data-cat="pizza"><div class="ic">🌶️</div><div style="flex:1"><h3 class="serif">Diavola <span class="p">— lei</span></h3><p>Salam picant, ardei iute, mozzarella.</p></div></div>
+      <div class="item show" data-cat="pizza"><div class="ic">🍕</div><div style="flex:1"><h3 class="serif">Capricciosa <span class="p">— lei</span></h3><p>Șuncă, ciuperci, anghinare, măsline.</p></div></div>
+      <div class="item show" data-cat="pizza"><div class="ic">🧀</div><div style="flex:1"><h3 class="serif">Quattro Formaggi <span class="p">— lei</span></h3><p>Patru feluri de brânză.</p></div></div>
+      <div class="item" data-cat="desert"><div class="ic">🍰</div><div style="flex:1"><h3 class="serif">Desertul casei <span class="p">— lei</span></h3><p>Lăudat de clienți în recenzii.</p></div></div>
+      <div class="item" data-cat="drink"><div class="ic">🥤</div><div style="flex:1"><h3 class="serif">Răcoritoare <span class="p">— lei</span></h3><p>Diverse sortimente.</p></div></div>
+      <div class="item" data-cat="drink"><div class="ic">🍺</div><div style="flex:1"><h3 class="serif">Bere <span class="p">— lei</span></h3><p>La sticlă sau la doză.</p></div></div>
+    </div>
+    <p class="note">Produsele și prețurile de mai sus sunt exemple. Meniul vostru real se pune în locul lor.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">De ce noi</div>
+    <h2 class="serif">Pizza făcută cu grijă</h2>
+    <div class="feat">
+      <div class="c"><div class="ic">👐</div><h4 class="serif">Aluat de casă</h4><p>Frământat la noi, lăsat să crească cum trebuie.</p></div>
+      <div class="c"><div class="ic">🔥</div><h4 class="serif">Scoasă fierbinte</h4><p>Fiecare pizza se face la comandă, nu stă pe tejghea.</p></div>
+      <div class="c"><div class="ic">🛵</div><h4 class="serif">Livrare</h4><p>Sună și ți-o aducem caldă, acasă.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#ffd77a">Recenzii</div>
+    <h2 class="serif">„Cea mai bună pizza din oraș”</h2>
+    <div class="big serif">4,7</div>
+    <div class="stars">★★★★★</div>
+    <p>Nota de pe Google, de la clienții noștri din Lupeni și din toată Valea Jiului.</p>
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cuptorul+cu+pizza+Lupeni" target="_blank" rel="noopener">Citește recenziile pe Google →</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Vizită</div>
+    <h2 class="serif">Te așteptăm</h2>
+    <div class="visit">
+      <div class="box">
+        <h3 class="serif">Program</h3>
+        <table><tr><td>Luni – Duminică</td><td>12:00 – 21:00</td></tr></table>
+        <a class="btn r" style="margin-top:16px" href="tel:+40734271458">📞 0734 271 458</a>
+      </div>
+      <div class="box">
+        <h3 class="serif">Unde ne găsești</h3>
+        <div style="color:var(--muted)">Strada Castanilor, Lupeni</div>
+        <a class="map" href="https://www.google.com/maps/dir/?api=1&destination=45.3503218,23.2026324" target="_blank" rel="noopener">
+          <span class="pin">📍</span><span class="lbl">Deschide traseul</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="name serif">Cuptorul cu pizza</div>
+  Strada Castanilor, Lupeni · 0734 271 458
+  <p style="margin-top:14px;opacity:.6">Machetă realizată de Andrei · OddCllaw</p>
+</footer>
+
+<div class="bar"><a href="tel:+40734271458">📞 Sună și comandă</a></div>
+
+<script>
+  (function(){
+    var tabs=document.getElementById('tabs'),items=document.querySelectorAll('#grid [data-cat]');
+    tabs.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+      Array.prototype.forEach.call(tabs.children,function(x){x.classList.toggle('on',x===b)});
+      Array.prototype.forEach.call(items,function(it){it.classList.toggle('show',it.dataset.cat===b.dataset.t)});});
+  })();
+</script>
+</body>
+</html>
