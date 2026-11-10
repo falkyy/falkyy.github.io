@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#004500">
+<title>Cubaj Bușteni</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{font-family:Roboto,system-ui,-apple-system,"Segoe UI",sans-serif;background:#fafafa;color:#222;overflow-x:hidden}
+  header{background:#004500;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 6px 0 16px;
+         position:sticky;top:0;z-index:10}
+  header .title{color:#fff;font-size:19px;font-weight:600}
+  header .icons{display:flex}
+  header button{background:none;border:0;width:48px;height:48px;display:grid;place-items:center;border-radius:50%}
+  header button:active{background:rgba(255,255,255,.15)}
+  header svg{width:28px;height:28px;fill:#fff}
+
+  .calc{padding:18px 14px 6px}
+  .line{display:flex;align-items:flex-end;justify-content:space-between}
+  .field{display:flex;align-items:flex-end;gap:8px}
+  .field input{width:100%;min-width:0;border:0;border-bottom:2px solid #555;background:transparent;font-size:60px;font-weight:700;
+               text-align:right;color:#222;padding:0 4px;font-family:inherit;line-height:1.1;border-radius:0}
+  .field input:focus{outline:none;border-bottom:3px solid #00796b}
+  .field .u{font-size:38px;color:#666;line-height:1.2}
+  .f-len{width:42%}
+  .f-d{width:46%}
+  .times{font-size:38px;color:#555;padding-bottom:14px}
+  .vol-line{margin-top:26px;align-items:center}
+  .vol-line .lbl{font-size:38px;color:#666}
+  .vol-line .eq{font-size:38px;color:#666;padding:0 6px}
+  .vol-out{display:flex;white-space:nowrap;align-items:flex-end;gap:8px}
+  .vol-out .num{font-size:56px;font-weight:700;border-bottom:2px solid #555;min-width:120px;text-align:right;padding:0 4px;line-height:1.15}
+  .vol-out .u{font-size:36px;color:#666}
+  .vol-out .num.dim{color:#bbb}
+
+  .bottom{display:flex;padding:18px 14px 120px;gap:8px}
+  .list{flex:1;min-width:0}
+  .total{font-size:28px;font-weight:700;color:#555;margin-bottom:14px}
+  .money{font-size:20px;font-weight:700;color:#2e7d32;margin:-8px 0 12px}
+  table{width:100%;border-collapse:collapse}
+  th{font-size:16px;white-space:nowrap;color:#555;font-weight:700;text-align:right;padding:4px 4px}
+  td{font-size:17px;white-space:nowrap;color:#555;font-weight:600;text-align:right;padding:4px 4px;font-variant-numeric:tabular-nums}
+  th:first-child,td:first-child{text-align:left;width:34px}
+  tr.sel td{background:#e0f2f1}
+  .fabs{display:flex;flex-direction:column;align-items:center;gap:16px;width:92px;flex-shrink:0}
+  .fab{border:0;border-radius:50%;display:grid;place-items:center;box-shadow:0 3px 6px rgba(0,0,0,.25)}
+  .fab:active{transform:scale(.94)}
+  .fab svg{fill:#fff}
+  .fab.add{width:92px;height:92px;background:#2e7d32}
+  .fab.add svg{width:56px;height:56px}
+  .fab.red{width:70px;height:70px;background:#d50000}
+  .fab.red svg{width:42px;height:42px}
+  .fab.red.armed{background:#7f0000}
+
+  .sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;z-index:20}
+  .sheet{position:fixed;left:0;right:0;bottom:0;background:#fff;border-radius:18px 18px 0 0;padding:20px 18px 28px;
+         z-index:21;transform:translateY(105%);transition:transform .2s}
+  .sheet.open{transform:none}
+  .sheet h3{font-size:20px;margin-bottom:16px;color:#004500}
+  .sheet label{display:block;font-size:14px;color:#666;margin:14px 0 6px;font-weight:600}
+  .sheet input{width:100%;font-size:22px;padding:10px;border:2px solid #ccc;border-radius:10px;font-family:inherit}
+  .seg{display:flex;border:2px solid #2e7d32;border-radius:10px;overflow:hidden}
+  .seg button{flex:1;border:0;background:#fff;color:#2e7d32;font-size:16px;font-weight:700;padding:12px 6px}
+  .seg button.on{background:#2e7d32;color:#fff}
+  .hint{font-size:13px;color:#888;margin-top:8px;line-height:1.45}
+  .close{margin-top:20px;width:100%;border:0;background:#004500;color:#fff;font-size:18px;font-weight:700;padding:14px;border-radius:12px}
+
+  .toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#323232;color:#fff;padding:12px 18px;
+         border-radius:8px;font-size:16px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:30;white-space:nowrap}
+  .toast.show{opacity:1}
+
+  /* capete mode: two diameter inputs */
+  .ends{display:none;margin-top:16px;gap:12px}
+  .ends .field input{font-size:44px}
+  .ends .field .u{font-size:30px}
+  body.m-ends .ends{display:flex}
+  body.m-ends .f-d{display:none}
+  body.m-ends .times{display:none}
+  body.m-ends .f-len{width:60%}
+  .ends .cap{font-size:13px;color:#777;font-weight:600;margin-bottom:2px}
+
+  @media (max-width:380px){
+    .field input{font-size:48px}.field .u,.times{font-size:30px}
+    .vol-line .lbl,.vol-line .eq{font-size:30px}.vol-out .num{font-size:46px}.vol-out .u{font-size:30px}
+    .total{font-size:23px} th{font-size:14px} td{font-size:15px}
+    .fabs{width:78px}.fab.add{width:78px;height:78px}.fab.red{width:60px;height:60px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="title">Cubaj</div>
+  <div class="icons">
+    <button id="shareBtn" aria-label="Trimite"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11A2.99 2.99 0 0 0 21 5a3 3 0 1 0-5.91.7L8.04 9.81A3 3 0 1 0 6 15c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65A2.92 2.92 0 1 0 18 16.08z"/></svg></button>
+    <button id="copyBtn" aria-label="Copiază lista"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></button>
+    <button id="setBtn" aria-label="Setări"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.31.06-.62.06-.94s-.02-.63-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96a7.03 7.03 0 0 0-1.62-.94l-.36-2.54A.48.48 0 0 0 13.92 2h-3.84a.48.48 0 0 0-.48.41l-.36 2.54c-.59.24-1.13.56-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.72 8.47a.48.48 0 0 0 .12.61l2.03 1.58c-.05.31-.07.63-.07.94s.02.63.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.48.48 0 0 0-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></svg></button>
+  </div>
+</header>
+
+<section class="calc">
+  <div class="line">
+    <div class="field f-len"><input id="len" inputmode="decimal" enterkeyhint="next" autocomplete="off"><span class="u">m</span></div>
+    <div class="times">×</div>
+    <div class="field f-d"><input id="d" inputmode="decimal" enterkeyhint="done" autocomplete="off"><span class="u">cm</span></div>
+  </div>
+  <div class="ends">
+    <div style="flex:1"><div class="cap">Capăt subțire</div><div class="field"><input id="d1" inputmode="decimal" enterkeyhint="next" autocomplete="off"><span class="u">cm</span></div></div>
+    <div style="flex:1"><div class="cap">Capăt gros</div><div class="field"><input id="d2" inputmode="decimal" enterkeyhint="done" autocomplete="off"><span class="u">cm</span></div></div>
+  </div>
+  <div class="line vol-line">
+    <span class="lbl">Volum</span><span class="eq">=</span>
+    <div class="vol-out"><span class="num dim" id="vol">0.000</span><span class="u">m³</span></div>
+  </div>
+</section>
+
+<section class="bottom">
+  <div class="list">
+    <div class="total" id="total">Total: 0.000 m³</div>
+    <div class="money" id="money"></div>
+    <table><thead><tr><th>#</th><th>Lungime</th><th>Diametru</th><th>Volum</th></tr></thead><tbody id="rows"></tbody></table>
+  </div>
+  <div class="fabs">
+    <button class="fab add" id="addBtn" aria-label="Adaugă"><svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></button>
+    <button class="fab red" id="undoBtn" aria-label="Șterge ultimul"><svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg></button>
+    <button class="fab red" id="clearBtn" aria-label="Șterge tot"><svg viewBox="0 0 24 24"><path d="M5 6h15v2.5H5zM4 11h13v2.5H4zM3 16h11v2.5H3z"/></svg></button>
+  </div>
+</section>
+
+<div class="sheet-bg" id="sheetBg"></div>
+<div class="sheet" id="sheet">
+  <h3>Setări</h3>
+  <label>Cum măsori diametrul</label>
+  <div class="seg" id="modeSeg">
+    <button data-m="mid">La mijloc</button>
+    <button data-m="ends">Media capetelor</button>
+  </div>
+  <label for="price">Preț lei / m³ (opțional)</label>
+  <input id="price" inputmode="decimal" placeholder="ex: 450" autocomplete="off">
+  <p class="hint">Volum = π × d² / 4 × lungime. Lungimea rămâne aceeași până o schimbi, așa că scrii doar diametrul și apeși pe ✓ sau pe +.
+  Butonul roșu „−” șterge ultimul buștean, iar cel de dedesubt șterge toată lista (apeși de două ori).</p>
+  <button class="close" id="closeSheet">Gata</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var KEY='cubaj-busteni-v2';
+  var st={mode:'mid',len:'4',price:'',logs:[]};
+  try{var s=JSON.parse(localStorage.getItem(KEY)); if(s&&Array.isArray(s.logs)) st=Object.assign(st,s);}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+
+  var $=function(i){return document.getElementById(i)};
+  var len=$('len'),d=$('d'),d1=$('d1'),d2=$('d2');
+  function num(v){v=String(v==null?'':v).trim().replace(',','.');return v===''?NaN:parseFloat(v)}
+  function V(dcm,L){var r=dcm/100;return Math.PI*r*r/4*L}
+  function f3(n){return n.toFixed(3)}
+  function fL(n){return String(Math.round(n*100)/100)}
+  function fD(n){return String(Math.round(n*10)/10)}
+
+  function diam(){
+    if(st.mode==='mid') return num(d.value);
+    var a=num(d1.value),b=num(d2.value); return (isNaN(a)||isNaN(b))?NaN:(a+b)/2;
+  }
+  function live(){
+    var L=num(len.value),D=diam(),el=$('vol');
+    if(L>0&&D>0){el.textContent=f3(V(D,L));el.classList.remove('dim')}
+    else{el.textContent='0.000';el.classList.add('dim')}
+  }
+  function render(){
+    document.body.classList.toggle('m-ends',st.mode==='ends');
+    Array.prototype.forEach.call(document.querySelectorAll('#modeSeg button'),function(b){b.classList.toggle('on',b.dataset.m===st.mode)});
+    var t=0,h='';
+    st.logs.forEach(function(l,i){t+=l.v;h+='<tr><td>'+(i+1)+'.</td><td>'+fL(l.L)+' m</td><td>'+fD(l.d)+' cm</td><td>'+f3(l.v)+' m³</td></tr>'});
+    $('rows').innerHTML=h;
+    $('total').textContent='Total: '+f3(t)+' m³';
+    var p=num(st.price);
+    $('money').textContent=(p>0&&st.logs.length)?(t*p).toFixed(2)+' lei':'';
+    live();
+  }
+  function toast(m){var e=$('toast');e.textContent=m;e.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove('show')},1500)}
+  function focusD(){var el=st.mode==='mid'?d:d1;el.focus();try{el.select()}catch(e){}}
+
+  function add(){
+    var L=num(len.value),D=diam();
+    if(!(L>0)){toast('Pune lungimea');len.focus();return}
+    if(!(D>0)){toast('Pune diametrul');focusD();return}
+    if(D>300){toast('Diametrul e în cm');return}
+    if(L>30){toast('Lungimea e în metri');return}
+    st.logs.push({d:D,L:L,v:V(D,L)});save();render();
+    var bot=document.querySelector('.list table');bot&&bot.lastElementChild.lastElementChild&&bot.lastElementChild.lastElementChild.scrollIntoView({block:'nearest'});
+    focusD();
+  }
+
+  $('addBtn').addEventListener('click',add);
+  len.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();focusD()}});
+  d.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();add()}});
+  d1.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();d2.focus()}});
+  d2.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();add()}});
+  [len,d,d1,d2].forEach(function(el){
+    el.addEventListener('input',live);
+    el.addEventListener('focus',function(){var t=this;setTimeout(function(){try{t.select()}catch(e){}},0)});
+  });
+  len.addEventListener('input',function(){st.len=len.value;save()});
+  d.addEventListener('input',function(){st.lastD=d.value;save()});
+
+  $('undoBtn').addEventListener('click',function(){
+    if(!st.logs.length){toast('Lista e goală');return}
+    var l=st.logs.pop();save();render();toast('Șters: '+fD(l.d)+' cm · '+f3(l.v)+' m³');
+  });
+  var armed=false,at;
+  $('clearBtn').addEventListener('click',function(){
+    var b=this;
+    if(!st.logs.length){toast('Lista e goală');return}
+    if(!armed){armed=true;b.classList.add('armed');toast('Apasă iar ca să ștergi tot');at=setTimeout(function(){armed=false;b.classList.remove('armed')},3000);return}
+    clearTimeout(at);armed=false;b.classList.remove('armed');st.logs=[];save();render();toast('Listă ștearsă');
+  });
+
+  function listText(){
+    var t=0,L=['Cubaj bușteni — '+new Date().toLocaleDateString('ro-RO'),'# | Lungime | Diametru | Volum'];
+    st.logs.forEach(function(l,i){t+=l.v;L.push((i+1)+'. | '+fL(l.L)+' m | '+fD(l.d)+' cm | '+f3(l.v)+' m³')});
+    L.push('Total: '+f3(t)+' m³ ('+st.logs.length+' bușteni)');
+    var p=num(st.price);if(p>0)L.push('Valoare: '+(t*p).toFixed(2)+' lei ('+st.price+' lei/m³)');
+    return L.join('\n');
+  }
+  function copy(txt,ok){
+    function fb(){var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy');toast(ok)}catch(e){toast('Nu s-a putut copia')}ta.remove()}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(function(){toast(ok)},fb);else fb();
+  }
+  $('copyBtn').addEventListener('click',function(){if(!st.logs.length){toast('Lista e goală');return}copy(listText(),'Listă copiată')});
+  $('shareBtn').addEventListener('click',function(){
+    if(!st.logs.length){toast('Lista e goală');return}
+    var txt=listText();
+    if(navigator.share){navigator.share({title:'Cubaj bușteni',text:txt}).catch(function(){})}
+    else copy(txt,'Copiat — lipește în WhatsApp');
+  });
+
+  function openSheet(o){$('sheet').classList.toggle('open',o);$('sheetBg').style.display=o?'block':'none'}
+  $('setBtn').addEventListener('click',function(){$('price').value=st.price||'';openSheet(true)});
+  $('sheetBg').addEventListener('click',function(){openSheet(false)});
+  $('closeSheet').addEventListener('click',function(){openSheet(false)});
+  $('modeSeg').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;st.mode=b.dataset.m;save();render()});
+  $('price').addEventListener('input',function(){st.price=this.value;save();render()});
+
+  len.value=st.len||'4';
+  d.value=st.lastD||'';
+  render();
+  setTimeout(focusD,300);
+})();
+</script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(){})}</script>
+</body>
+</html>
