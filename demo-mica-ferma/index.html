@@ -30,10 +30,14 @@
   .hero{position:relative;min-height:88vh;min-height:88svh;display:flex;flex-direction:column;justify-content:flex-end;
         background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.1) 45%,rgba(40,24,10,.9) 100%),url(intrare.jpg) 62% 30%/cover no-repeat,#7a4f2a;overflow:hidden;color:#fff}
   @media(max-width:899px){
-    .hero{min-height:0;justify-content:flex-start;padding-top:60vw;
-      background:linear-gradient(180deg,rgba(58,36,18,0) 0,rgba(58,36,18,0) 48vw,rgba(58,36,18,.85) 62vw,#3a2412 74vw),url(intrare.jpg) center top/100% auto no-repeat,#3a2412}
+    .hero{min-height:0;justify-content:flex-start;padding-top:50vw;
+      background:linear-gradient(180deg,rgba(40,24,10,0) 0,rgba(40,24,10,0) 40vw,rgba(40,24,10,.45) 62vw,rgba(40,24,10,.75) 92vw,#3a2412 114vw),url(intrare.jpg) center -16vw/100% auto no-repeat,#3a2412}
+    .hero h1,.hero h1 em,.hero p.lead,.hero .badge,.hero .rating{text-shadow:0 2px 12px rgba(0,0,0,.6)}
     .hero-inner{padding-bottom:34px}
     .cta{flex-wrap:nowrap}
+  }
+  @media(max-width:380px){
+    .cta .btn{font-size:14px!important;padding:14px 5px!important;gap:4px!important}
     .cta .btn{flex:1 1 0;min-width:0;justify-content:center;text-align:center;line-height:1.2;padding:14px 8px;font-size:15px;gap:6px}
   }
   @media(min-width:900px){.hero{background:linear-gradient(90deg,#3a2412 0%,#3a2412 42%,rgba(58,36,18,.55) 55%,rgba(58,36,18,0) 70%),url(intrare.jpg) right 30%/58% auto no-repeat,#3a2412}
