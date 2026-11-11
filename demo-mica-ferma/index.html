@@ -242,6 +242,22 @@
   </div>
 </header>
 
+<!--
+  ============ UNDE MODIFIC CE (caută cu Ctrl+F) ============
+  EDIT-MENIU      felurile de mâncare și prețurile
+  EDIT-MENIU-EN   aceleași feluri, în engleză (jos, în script)
+  EDIT-PROGRAM    orarul pe zile (tabelul de la Contact)
+  EDIT-PROGRAM-SCURT  rândul „Marți – Duminică” din banda de sus
+  EDIT-DESPRE     textul „Despre noi” și poza de familie
+  EDIT-POZE-COPII secțiunea pentru copii (aici vin pozele)
+  EDIT-RECENZII   nota de pe Google și numărul de recenzii
+  EDIT-ADRESA     adresa și linkul de hartă
+  EDIT-TELEFON    numărul apare în mai multe locuri: caută 0721 963 892
+                  și 40721963892 și înlocuiește peste tot
+  EDIT-EN         toate textele în engleză (jos, în script)
+  ===========================================================
+-->
+<!-- EDIT-PROGRAM-SCURT: zilele de mai jos (engleza: s_days la EDIT-EN). EDIT-TELEFON: și aici -->
 <div class="strip">
   <div class="wrap">
     <div class="it"><div class="k" data-i18n="s_prog">Program</div><div class="v" data-i18n="s_days">Marți – Duminică</div></div>
@@ -250,6 +266,7 @@
   </div>
 </div>
 
+<!-- EDIT-DESPRE: cele trei paragrafe și poza familia.jpg (engleza: a_p1, a_p2, a_p3 la EDIT-EN) -->
 <section id="despre">
   <div class="wrap">
     <div class="eyebrow" data-i18n="a_eb">Despre noi</div>
@@ -271,6 +288,10 @@
     <h2 data-i18n="m_h">Ce găsești azi pe masă</h2>
     <p class="sub" data-i18n="m_sub">Ca la orice punct gastronomic local, gătim câteva feluri pe zi, după sezon și după ce avem proaspăt.</p>
 
+    <!-- EDIT-MENIU: un rând "dish" = un fel de mâncare.
+         Numele e primul text, descrierea e între <small> și </small>, prețul e în <div class="p"> (ex: 25 lei).
+         Fel nou = copiezi un rând "dish" întreg și îl schimbi; pentru engleză vezi EDIT-MENIU-EN.
+         Când meniul e cel real, șterge rândul cu class="note" de la final. -->
     <div class="menu-card">
       <div class="course">
         <h3 data-i18n="m_c1">Ciorbe</h3>
@@ -303,6 +324,7 @@
   </div>
 </section>
 
+<!-- EDIT-POZE-COPII: cardurile k1, k2, k3 și nota „Aici vor apărea poze” (class="ph"), care se șterge când vin pozele -->
 <section class="kids" id="copii">
   <div class="wrap">
     <div class="eyebrow" data-i18n="k_eb">Pentru cei mici</div>
@@ -317,6 +339,7 @@
   </div>
 </section>
 
+<!-- EDIT-RECENZII: nota 4,9 și textul de sub ea; aceeași notă apare și sus, lângă stele (caută „4,9 pe Google”) -->
 <section class="reviews">
   <div class="wrap">
     <div class="eyebrow" style="color:#ffd77a" data-i18n="r_eb">Ce spun oaspeții</div>
@@ -335,6 +358,7 @@
     <div class="visit-grid">
       <div class="box">
         <h3 data-i18n="s_prog">Program</h3>
+        <!-- EDIT-PROGRAM: un rând <tr> = o linie din orar; orele sunt în a doua celulă. Numele zilelor în engleză: h_mon, h_tf, h_ss la EDIT-EN -->
         <table class="hours">
           <tr class="off"><td data-i18n="h_mon">Luni</td><td data-i18n="h_closed">Închis</td></tr>
           <tr><td data-i18n="h_tf">Marți – Vineri</td><td>14:00 – 20:00</td></tr>
@@ -343,6 +367,7 @@
         <div class="cash" data-i18n="cash">💵 <b>Plata: numerar sau transfer bancar.</b></div>
       </div>
       <div class="box">
+        <!-- EDIT-ADRESA: textul adresei și, mai jos, coordonatele din linkul de hartă (destination=...) -->
         <h3 data-i18n="v_where">Unde ne găsești</h3>
         <div class="addr" data-i18n="addr">Strada Taia 101, Petrila<br>Județul Hunedoara</div>
         <a class="map" href="https://www.google.com/maps/dir/?api=1&destination=45.4545415,23.4244036" target="_blank" rel="noopener">
@@ -365,6 +390,8 @@
 (function(){
   var WA={ro:"https://wa.me/40721963892?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20mas%C4%83%20la%20Mica%20Ferm%C4%83.",en:"https://wa.me/40721963892?text=Hello%21%20I%20would%20like%20to%20book%20a%20table%20at%20Mica%20Ferm%C4%83."};
   var EN={
+    // EDIT-EN: textele în engleză. Cheia din stânga (ex: d1) e aceeași cu data-i18n="d1" din pagină.
+    // Dacă schimbi un text în română și uiți engleza, pe EN rămâne textul vechi.
     draft:"DEMO MOCKUP · the menu, prices and photos are examples and will be replaced",
     badge:"Local Food Spot · Petrila",
     tag:"traditional food, home-cooked",
@@ -376,6 +403,7 @@
     a_p2:"Our menu is short. We cook only a few dishes each day, but we cook them well, from fresh ingredients. Come as our guest: sit down, relax and leave full.",
     a_p3:"Children are welcome, and the place is quiet, with a view of the mountains.",
     m_eb:"Today's menu", m_h:"What's on the table today", m_sub:"Like any local food spot, we cook a few dishes a day, depending on the season and what we have fresh.",
+    // EDIT-MENIU-EN: d1…d5 sunt felurile, în ordinea din pagină. Fel nou = cheie nouă (d6) aici + data-i18n="d6" pe rândul lui din pagină.
     m_c1:"Soups", d1:"Bean soup with smoked meat<small>with red onion and homemade bread</small>", d2:"Meatball soup<small>soured with borș</small>",
     m_c2:"Main courses", d3:"Tochitură with polenta<small>pork stew with fried egg and sheep cheese</small>", d4:"Sarmale in cabbage leaves<small>with sour cream and hot pepper</small>",
     m_c3:"Dessert", d5:"Homemade pie<small>apple or cheese, depending on the day</small>",
