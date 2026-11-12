@@ -4,64 +4,140 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OddCllaw Games</title>
-<meta name="description" content="OddCllaw Games — mobile games for Android.">
+<meta name="description" content="OddCllaw Games — indie mobile games for Android, made in Romania.">
+<meta property="og:title" content="OddCllaw Games">
+<meta property="og:description" content="Indie mobile games, made in Romania.">
+<meta property="og:image" content="https://falkyy.github.io/img/ludomania-menu.jpg">
+<link rel="icon" href="img/oc-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0e0b1a;
-    --card: #1b1630;
-    --text: #f1f0f7;
-    --dim: #a9a4c2;
-    --accent: #3fbf6f;
-    --edge: #2c2547;
+    --purple: #6D4AFF;
+    --deep: #1A1030;
+    --yellow: #F5C518;
+    --text: #ffffff;
+    --soft: #ece6ff;
+    --dim: #d6ccff;
   }
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    margin: 0;
-    min-height: 100vh;
-    background: var(--bg);
+    background: var(--purple);
     color: var(--text);
-    font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    display: flex;
-    justify-content: center;
+    font: 17px/1.55 Fredoka, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
   }
-  main { width: 100%; max-width: 640px; padding: 56px 16px 40px; }
-  h1 { font-size: 2.2rem; margin: 0 0 4px; letter-spacing: 0.5px; }
-  .tagline { color: var(--dim); margin: 0 0 40px; }
-  h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; color: var(--dim); margin: 0 0 14px; }
+  a { color: inherit; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: relative; overflow: hidden; padding: 64px 0 56px; }
+  .dpad { position: absolute; left: -28px; top: 50%; width: 120px; height: 120px; transform: translateY(-50%); }
+  .dpad::before, .dpad::after { content: ""; position: absolute; background: #fff; border-radius: 10px; }
+  .dpad::before { left: 0; right: 0; top: 41px; height: 38px; }
+  .dpad::after { top: 0; bottom: 0; left: 41px; width: 38px; }
+  .btns { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); width: 90px; height: 120px; }
+  .btns i { position: absolute; width: 52px; height: 52px; border-radius: 50%; }
+  .btns i:first-child { background: var(--yellow); left: 0; top: 0; }
+  .btns i:last-child { background: #fff; right: 0; bottom: 0; }
+  .brand { display: flex; align-items: center; gap: 22px; justify-content: center; position: relative; z-index: 2; }
+  .brand img { width: 108px; height: 108px; flex: 0 0 auto; }
+  h1 { font-weight: 700; font-size: clamp(36px, 7vw, 64px); line-height: 1; letter-spacing: -.5px; }
+  .tagline { color: var(--soft); font-weight: 500; font-size: clamp(17px, 2.6vw, 24px); margin-top: 6px; }
+
+  section { padding: 10px 0 40px; }
+  h2 { font-weight: 700; font-size: 15px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--dim); margin-bottom: 16px; }
+
   .game {
-    display: block;
-    background: var(--card);
-    border: 1px solid var(--edge);
-    border-radius: 14px;
-    padding: 18px 20px;
-    color: inherit;
-    text-decoration: none;
-    margin-bottom: 14px;
-    transition: border-color 0.15s;
+    background: var(--deep); border-radius: 26px; overflow: hidden;
+    display: grid; grid-template-columns: 300px 1fr;
+    box-shadow: 0 24px 50px rgba(20, 8, 60, .35);
   }
-  .game:hover, .game:focus-visible { border-color: var(--accent); }
-  .game strong { font-size: 1.2rem; }
-  .game span { display: block; color: var(--dim); font-size: 0.95rem; margin-top: 2px; }
-  .game em { display: inline-block; margin-top: 10px; color: var(--accent); font-style: normal; font-weight: 600; }
-  footer { margin-top: 44px; color: var(--dim); font-size: 0.95rem; }
-  footer a { color: var(--text); }
+  .shot { background: radial-gradient(circle at 50% 40%, #6b4a22 0%, #2a1d10 70%); padding: 26px; display: flex; justify-content: center; align-items: center; }
+  .phone { width: 220px; border-radius: 30px; padding: 8px; background: #0c0a14; box-shadow: 0 16px 34px rgba(0,0,0,.5); }
+  .phone img { display: block; width: 100%; border-radius: 23px; }
+  .info { padding: 34px 32px; display: flex; flex-direction: column; justify-content: center; }
+  .pill { display: inline-block; align-self: flex-start; background: var(--yellow); color: var(--deep); font-weight: 700; font-size: 14px; padding: 6px 14px; border-radius: 30px; }
+  .info h3 { font-weight: 700; font-size: 38px; margin-top: 14px; line-height: 1.05; }
+  .info p { color: var(--dim); margin-top: 10px; font-size: 18px; }
+  .feat { list-style: none; margin-top: 16px; display: grid; gap: 8px; }
+  .feat li { padding-left: 30px; position: relative; color: var(--soft); }
+  .feat li::before { content: ""; position: absolute; left: 0; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--purple); box-shadow: inset 0 0 0 4px #b8a6ff; }
+  .play { margin-top: 24px; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; background: #4cd07d; color: #062b14; text-decoration: none; font-weight: 700; font-size: 19px; padding: 14px 24px; border-radius: 16px; }
+  .play:hover { filter: brightness(1.06); }
+
+  .soon { margin-top: 18px; border: 2px dashed rgba(255,255,255,.65); border-radius: 22px; padding: 22px 26px; display: flex; align-items: center; gap: 18px; }
+  .soon .ic { font-size: 40px; }
+  .soon b { font-weight: 700; font-size: 22px; display: block; }
+  .soon span { color: var(--dim); }
+
+  footer { padding: 28px 0 46px; color: var(--soft); font-size: 16px; text-align: center; }
+  footer a { color: #fff; }
+  footer .sep { opacity: .5; margin: 0 8px; }
+
+  @media (max-width: 720px) {
+    header { padding: 44px 0 40px; }
+    .dpad, .btns { display: none; }
+    .brand { flex-direction: column; text-align: center; gap: 14px; }
+    .brand img { width: 92px; height: 92px; }
+    .game { grid-template-columns: 1fr; }
+    .info { padding: 26px 22px 30px; }
+    .info h3 { font-size: 32px; }
+  }
 </style>
 </head>
 <body>
-<main>
-  <h1>OddCllaw Games</h1>
-  <p class="tagline">Mobile games for Android.</p>
 
-  <h2>Games</h2>
-  <a class="game" href="https://play.google.com/store/apps/details?id=com.oddcllaw.inc.ludomania">
-    <strong>LudoMania</strong>
-    <span>The classic board game, with bots, local Wi-Fi and online play.</span>
-    <em>Get it on Google Play →</em>
-  </a>
+<header>
+  <div class="dpad" aria-hidden="true"></div>
+  <div class="btns" aria-hidden="true"><i></i><i></i></div>
+  <div class="wrap">
+    <div class="brand">
+      <img src="img/oc-logo.png" alt="OddCllaw Games logo">
+      <div>
+        <h1>OddCllaw Games</h1>
+        <p class="tagline">Indie mobile games, made in Romania</p>
+      </div>
+    </div>
+  </div>
+</header>
 
-  <footer>
+<section>
+  <div class="wrap">
+    <h2>Games</h2>
+
+    <div class="game">
+      <div class="shot">
+        <div class="phone"><img src="img/ludomania-menu.jpg" alt="LudoMania main menu" loading="lazy"></div>
+      </div>
+      <div class="info">
+        <span class="pill">Out now on Android</span>
+        <h3>LudoMania</h3>
+        <p>The classic board game “Don't get angry”, hosted by a dice with a top hat and a monocle.</p>
+        <ul class="feat">
+          <li>Play against bots</li>
+          <li>Local Wi-Fi with friends in the same room</li>
+          <li>Online matches and ranking</li>
+          <li>Custom pieces and stats</li>
+        </ul>
+        <a class="play" href="https://play.google.com/store/apps/details?id=com.oddcllaw.inc.ludomania">▶ Get it on Google Play</a>
+      </div>
+    </div>
+
+    <div class="soon">
+      <div class="ic">🥃</div>
+      <div><b>Țuica Tycoon · coming soon</b><span>An idle game about making țuică, the Romanian way.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
     Contact: <a href="mailto:falky.i.am@gmail.com">falky.i.am@gmail.com</a>
-  </footer>
-</main>
+    <span class="sep">·</span>
+    <a href="/site-uri/">I also build websites →</a>
+  </div>
+</footer>
+
 </body>
 </html>
