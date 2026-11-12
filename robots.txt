@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /demo-cuptorul-cu-pizza/
+Disallow: /demo-sus-in-deal/
+Disallow: /demo-mica-ferma/
+
+Sitemap: https://falkyy.github.io/sitemap.xml
