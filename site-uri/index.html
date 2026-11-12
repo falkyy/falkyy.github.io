@@ -74,6 +74,21 @@ h2{font-size:clamp(28px,4vw,40px);font-weight:900;letter-spacing:-.8px}
 .gig b{display:block;font-size:17px}
 .gig span{color:var(--muted);font-size:14px}
 footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:14px;text-align:center}
+.revs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}
+.rev{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.rev .stars{color:var(--yellow);font-size:22px;letter-spacing:3px}
+.rev .stars.dim{opacity:.3}
+.rev p{margin-top:10px;font-size:17px}
+.rev .who{margin-top:12px;color:var(--muted);font-size:14px}
+.rev-empty{border-style:dashed;color:var(--muted)}
+.revform{margin-top:22px;max-width:560px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:14px}
+.revform h3{font-size:22px}
+.revform label{display:grid;gap:6px;font-weight:700;font-size:15px}
+.revform input,.revform textarea{font:inherit;font-weight:400;color:var(--text);background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:10px;padding:12px}
+.pick{display:flex;gap:6px}
+.pick button{font-size:32px;background:none;border:0;color:rgba(255,255,255,.25);cursor:pointer;padding:0 2px}
+.pick button.on{color:var(--yellow)}
+@media(max-width:760px){.revs{grid-template-columns:1fr}}
 @media(max-width:760px){.grid,.feat,.prices,.gigs{grid-template-columns:1fr}.hero-in{margin-top:44px}section{padding:56px 0}}
 </style>
 </head>
@@ -142,6 +157,41 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);f
   </div>
 </section>
 
+<section id="recenzii">
+  <div class="wrap">
+    <h2>Ce spun clienții</h2>
+    <p class="sub">Recenzii de la afacerile pentru care am lucrat.</p>
+    <div class="revs" id="revs">
+      <!-- RECENZII: copiază un bloc .rev pentru fiecare recenzie nouă și șterge .rev-empty
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <p>„Textul recenziei.”</p>
+        <div class="who"><b>Nume</b> · Afacere, Oraș</div>
+      </div>
+      -->
+      <div class="rev rev-empty">
+        <div class="stars dim">★★★★★</div>
+        <p>Primele recenzii apar aici în curând.</p>
+      </div>
+    </div>
+    <button class="btn y" id="openRev" type="button" style="margin-top:26px;border:0;cursor:pointer">⭐ Lasă o recenzie</button>
+
+    <form class="revform" id="revForm" hidden>
+      <h3>Lasă o recenzie</h3>
+      <label>Cât de mulțumit ești?
+        <div class="pick" id="pick">
+          <button type="button" data-v="1">★</button><button type="button" data-v="2">★</button><button type="button" data-v="3">★</button><button type="button" data-v="4">★</button><button type="button" data-v="5">★</button>
+        </div>
+      </label>
+      <label>Numele tău<input id="rName" required maxlength="60" placeholder="ex: Adela"></label>
+      <label>Afacerea<input id="rBiz" maxlength="80" placeholder="ex: Mica Fermă, Petrila"></label>
+      <label>Recenzia<textarea id="rText" required maxlength="500" rows="4" placeholder="Cum a fost să lucrăm împreună?"></textarea></label>
+      <button class="btn wa" type="submit" style="border:0;cursor:pointer"><img src="img/wa.png" alt="" width="20" height="20" style="display:block">Trimite pe WhatsApp</button>
+      <p class="note">Recenzia îmi ajunge pe WhatsApp și o public aici după ce o citesc.</p>
+    </form>
+  </div>
+</section>
+
 <section class="what">
   <div class="wrap">
     <h2>Ce primești</h2>
@@ -207,5 +257,21 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);f
   <div class="wrap">Andrei · Petrila, Valea Jiului · <a href="/">OddCllaw Games</a></div>
 </footer>
 
+<script>
+(function(){
+  var f=document.getElementById('revForm'),stars=5;
+  document.getElementById('openRev').onclick=function(){f.hidden=!f.hidden;if(!f.hidden)f.scrollIntoView({behavior:'smooth',block:'center'});};
+  var bs=document.querySelectorAll('#pick button');
+  function paint(){bs.forEach(function(b){b.classList.toggle('on',+b.dataset.v<=stars);});}
+  bs.forEach(function(b){b.onclick=function(){stars=+b.dataset.v;paint();};}); paint();
+  f.onsubmit=function(e){
+    e.preventDefault();
+    var n=document.getElementById('rName').value.trim(),biz=document.getElementById('rBiz').value.trim(),t=document.getElementById('rText').value.trim();
+    if(!n||!t)return;
+    var msg='Recenzie pentru site '+'★'.repeat(stars)+'\n\n„'+t+'”\n\n– '+n+(biz?', '+biz:'');
+    window.open('https://wa.me/40728857720?text='+encodeURIComponent(msg),'_blank');
+  };
+})();
+</script>
 </body>
 </html>
