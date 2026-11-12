@@ -40,8 +40,8 @@
   .btns i { position: absolute; width: 52px; height: 52px; border-radius: 50%; }
   .btns i:first-child { background: var(--yellow); left: 0; top: 0; }
   .btns i:last-child { background: #fff; right: 0; bottom: 0; }
-  .brand { display: flex; align-items: center; gap: 22px; justify-content: center; position: relative; z-index: 2; }
-  .brand img { width: 108px; height: 108px; flex: 0 0 auto; }
+  .brand { display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; }
+  .brand img { width: 300px; max-width: 80%; height: auto; }
   h1 { font-weight: 700; font-size: clamp(36px, 7vw, 64px); line-height: 1; letter-spacing: -.5px; }
   .tagline { color: var(--soft); font-weight: 500; font-size: clamp(17px, 2.6vw, 24px); margin-top: 6px; }
 
@@ -77,9 +77,8 @@
 
   @media (max-width: 720px) {
     header { padding: 44px 0 40px; }
-    .dpad, .btns { display: none; }
-    .brand { flex-direction: column; text-align: center; gap: 14px; }
-    .brand img { width: 92px; height: 92px; }
+    .brand { gap: 16px; }
+    .brand img { width: 230px; }
     .game { grid-template-columns: 1fr; }
     .info { padding: 26px 22px 30px; }
     .info h3 { font-size: 32px; }
@@ -89,11 +88,9 @@
 <body>
 
 <header>
-  <div class="dpad" aria-hidden="true"></div>
-  <div class="btns" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap">
     <div class="brand">
-      <img src="img/oc-logo.png" alt="OddCllaw Games logo">
+      <img src="img/oc-emblem.png" alt="OddCllaw Games logo">
       <div>
         <h1>OddCllaw Games</h1>
         <p class="tagline">Indie mobile games, made in Romania</p>
