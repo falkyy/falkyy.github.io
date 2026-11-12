@@ -74,6 +74,18 @@ h2{font-size:clamp(28px,4vw,40px);font-weight:900;letter-spacing:-.8px}
 .gig b{display:block;font-size:17px}
 .gig span{color:var(--muted);font-size:14px}
 footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:14px;text-align:center}
+.slider{position:relative;margin-top:34px}
+.track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.track::-webkit-scrollbar{display:none}
+.track .card{flex:0 0 calc((100% - 22px)/2);scroll-snap-align:start}
+.track .card:hover{transform:none}
+.nav-btn{position:absolute;top:38%;transform:translateY(-50%);z-index:3;width:48px;height:48px;border-radius:50%;border:0;background:var(--yellow);color:var(--bg2);font-size:30px;font-weight:900;line-height:1;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;padding-bottom:4px}
+.nav-btn.prev{left:-18px}.nav-btn.next{right:-18px}
+.nav-btn[disabled]{opacity:0;pointer-events:none}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
+.dots button{width:9px;height:9px;border-radius:9px;border:0;background:rgba(255,255,255,.3);cursor:pointer;padding:0;transition:width .2s,background .2s}
+.dots button.on{width:26px;background:var(--yellow)}
+@media(max-width:760px){.track .card{flex-basis:86%}.nav-btn{display:none}}
 .revs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}
 .rev{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
 .rev .stars{color:var(--yellow);font-size:22px;letter-spacing:3px}
@@ -115,8 +127,10 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);f
 <section id="proiecte">
   <div class="wrap">
     <h2>Proiecte</h2>
-    <p class="sub">Apasă pe oricare ca să-l deschizi. Merg la fel de bine pe telefon.</p>
-    <div class="grid">
+    <p class="sub">Glisează prin proiecte și apasă pe oricare ca să-l deschizi.</p>
+    <div class="slider">
+    <button class="nav-btn prev" type="button" aria-label="Înapoi">‹</button>
+    <div class="track" id="track">
       <a class="card" href="/demo-mica-ferma/" target="_blank" rel="noopener">
         <div class="shot" style="background-image:url(img/mica-ferma.jpg)"></div>
         <div class="body">
@@ -154,6 +168,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);f
         </div>
       </a>
     </div>
+    <button class="nav-btn next" type="button" aria-label="Înainte">›</button>
+    </div>
+    <div class="dots" id="dots"></div>
   </div>
 </section>
 
@@ -271,6 +288,23 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);f
     var msg='Recenzie pentru site '+'★'.repeat(stars)+'\n\n„'+t+'”\n\n– '+n+(biz?', '+biz:'');
     window.open('https://wa.me/40728857720?text='+encodeURIComponent(msg),'_blank');
   };
+})();
+</script>
+<script>
+(function(){
+  var t=document.getElementById('track'),cards=t.children,dots=document.getElementById('dots');
+  var prev=document.querySelector('.nav-btn.prev'),next=document.querySelector('.nav-btn.next');
+  for(var i=0;i<cards.length;i++){(function(k){var d=document.createElement('button');d.type='button';d.setAttribute('aria-label','Proiectul '+(k+1));d.onclick=function(){go(k);};dots.appendChild(d);})(i);}
+  function step(){return cards[1]?cards[1].offsetLeft-cards[0].offsetLeft:t.clientWidth;}
+  function idx(){return Math.round(t.scrollLeft/step());}
+  function go(k){t.scrollTo({left:k*step(),behavior:'smooth'});}
+  function upd(){var k=idx(),max=t.scrollWidth-t.clientWidth-4;
+    [].forEach.call(dots.children,function(d,n){d.classList.toggle('on',n===k);});
+    prev.disabled=t.scrollLeft<4; next.disabled=t.scrollLeft>=max;}
+  prev.onclick=function(){go(Math.max(0,idx()-1));};
+  next.onclick=function(){go(Math.min(cards.length-1,idx()+1));};
+  t.addEventListener('scroll',function(){window.requestAnimationFrame(upd);},{passive:true});
+  window.addEventListener('resize',upd); upd();
 })();
 </script>
 </body>
