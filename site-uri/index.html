@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andrei · Site-uri pentru afaceri din Valea Jiului</title>
+<meta name="description" content="Fac site-uri moderne, rapide și care arată bine pe telefon, pentru afaceri mici din Petrila, Petroșani și toată Valea Jiului.">
+<meta property="og:title" content="Andrei · Site-uri pentru afaceri">
+<meta property="og:description" content="Site-uri moderne, gata pe telefon, cu buton de WhatsApp. Valea Jiului și online.">
+<meta property="og:image" content="https://falkyy.github.io/site-uri/img/mica-ferma.jpg">
+<meta property="og:type" content="website">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#1b0d3a;--bg2:#25084f;--violet:#7b3fe4;--yellow:#ffd23f;--text:#f4efff;--muted:#c9bcef;--card:rgba(255,255,255,.07);--line:rgba(255,255,255,.14)}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header.hero{background:radial-gradient(circle at 80% 0%,#7b3fe4 0%,#4a1a9e 40%,var(--bg2) 75%);padding:28px 0 70px;position:relative;overflow:hidden}
+header.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+nav{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.me{font-weight:900;font-size:20px;letter-spacing:-.3px}
+.me span{color:var(--yellow)}
+nav a.small{font-size:14px;color:var(--muted);text-decoration:none}
+.hero-in{position:relative;z-index:2;margin-top:64px;max-width:720px}
+.pill{display:inline-block;background:var(--yellow);color:var(--bg2);font-weight:800;font-size:13px;letter-spacing:.5px;padding:7px 14px;border-radius:30px}
+h1{font-size:clamp(38px,6.4vw,66px);line-height:1.02;font-weight:900;letter-spacing:-1.5px;margin-top:20px}
+h1 em{font-style:normal;color:var(--yellow)}
+.lead{font-size:19px;color:var(--muted);margin-top:18px;max-width:600px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:12px;font-weight:800;text-decoration:none;font-size:16px}
+.btn.y{background:var(--yellow);color:var(--bg2)}
+.btn.o{border:2px solid var(--line);color:#fff}
+section{padding:72px 0}
+h2{font-size:clamp(28px,4vw,40px);font-weight:900;letter-spacing:-.8px}
+.sub{color:var(--muted);margin-top:8px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:34px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:transform .15s}
+.card:hover{transform:translateY(-3px)}
+.shot{aspect-ratio:16/10;background:#111 center top/cover no-repeat;border-bottom:1px solid var(--line)}
+.shot.phone{background-size:auto 100%;background-position:center top;background-color:#e8f0e8}
+.card .body{padding:20px 22px 22px}
+.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.4px;padding:4px 10px;border-radius:20px;margin-bottom:10px}
+.tag.real{background:#22c55e;color:#062}
+.tag.demo{background:rgba(255,255,255,.14);color:var(--muted)}
+.tag.tool{background:#4f7fa3;color:#fff}
+.card h3{font-size:22px;font-weight:800}
+.card p{color:var(--muted);font-size:15px;margin-top:6px}
+.card .go{margin-top:12px;font-weight:800;color:var(--yellow);font-size:15px}
+.what{background:var(--bg2)}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.f{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.f .ic{font-size:30px}
+.f h4{font-size:18px;margin-top:8px}
+.f p{color:var(--muted);font-size:15px;margin-top:4px}
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.pr{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 22px;display:flex;flex-direction:column}
+.pr.top{border:2px solid var(--yellow)}
+.pr h4{font-size:20px}
+.pr .amt{font-size:34px;font-weight:900;margin:8px 0 4px;color:var(--yellow)}
+.pr .amt small{font-size:15px;color:var(--muted);font-weight:600}
+.pr ul{list-style:none;margin-top:10px;color:var(--muted);font-size:15px}
+.pr li{padding:5px 0 5px 24px;position:relative}
+.pr li::before{content:"✓";position:absolute;left:0;color:#22c55e;font-weight:900}
+.note{color:var(--muted);font-size:14px;margin-top:16px}
+.contact{text-align:center}
+.contact .ctas{justify-content:center}
+.gigs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px;text-align:left}
+.gig{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;text-decoration:none;display:block}
+.gig b{display:block;font-size:17px}
+.gig span{color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:14px;text-align:center}
+@media(max-width:760px){.grid,.feat,.prices,.gigs{grid-template-columns:1fr}.hero-in{margin-top:44px}section{padding:56px 0}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav>
+      <div class="me">Andrei<span>.</span></div>
+      <a class="small" href="/">Jocurile mele →</a>
+    </nav>
+    <div class="hero-in">
+      <span class="pill">PETRILA · VALEA JIULUI</span>
+      <h1>Site-uri pentru afaceri, <em>gata pe telefon</em></h1>
+      <p class="lead">Fac site-uri moderne și rapide pentru afaceri mici: restaurante, pensiuni, service-uri, magazine. Cu buton de sunat și WhatsApp, ca oamenii să vă găsească și să vă scrie imediat.</p>
+      <div class="ctas">
+        <a class="btn y" href="#proiecte">Vezi proiectele</a>
+        <a class="btn o" href="#contact">Cere o ofertă</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="proiecte">
+  <div class="wrap">
+    <h2>Proiecte</h2>
+    <p class="sub">Apasă pe oricare ca să-l deschizi. Merg la fel de bine pe telefon.</p>
+    <div class="grid">
+      <a class="card" href="/demo-mica-ferma/" target="_blank" rel="noopener">
+        <div class="shot" style="background-image:url(img/mica-ferma.jpg)"></div>
+        <div class="body">
+          <span class="tag real">CLIENT REAL · ÎN LUCRU</span>
+          <h3>Mica Fermă, Petrila</h3>
+          <p>Punct gastronomic local. Meniu, pagină pentru copii și animale, recenzii, hartă, română și engleză.</p>
+          <div class="go">Deschide site-ul →</div>
+        </div>
+      </a>
+      <a class="card" href="/cubaj/" target="_blank" rel="noopener">
+        <div class="shot phone" style="background-image:url(img/cubaj.jpg)"></div>
+        <div class="body">
+          <span class="tag tool">APLICAȚIE WEB</span>
+          <h3>Cubaj Bușteni</h3>
+          <p>Calculator de volum pentru lemn, făcut pentru folosit pe telefon, direct în pădure sau la gater. Merge și fără internet.</p>
+          <div class="go">Deschide aplicația →</div>
+        </div>
+      </a>
+      <a class="card" href="/pensiune/" target="_blank" rel="noopener">
+        <div class="shot" style="background-image:url(img/pensiune.jpg)"></div>
+        <div class="body">
+          <span class="tag demo">EXEMPLU</span>
+          <h3>Pensiune la munte</h3>
+          <p>Model de site pentru o pensiune: camere, galerie, recenzii și cerere de rezervare.</p>
+          <div class="go">Deschide exemplul →</div>
+        </div>
+      </a>
+      <a class="card" href="/service/" target="_blank" rel="noopener">
+        <div class="shot" style="background-image:url(img/service.jpg)"></div>
+        <div class="body">
+          <span class="tag demo">EXEMPLU</span>
+          <h3>Service auto</h3>
+          <p>Model de site pentru un service: servicii, prețuri orientative și programare rapidă.</p>
+          <div class="go">Deschide exemplul →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="what">
+  <div class="wrap">
+    <h2>Ce primești</h2>
+    <div class="feat">
+      <div class="f"><div class="ic">📱</div><h4>Arată bine pe telefon</h4><p>Majoritatea clienților vă caută de pe telefon. Site-ul e făcut întâi pentru el.</p></div>
+      <div class="f"><div class="ic">💬</div><h4>Sunat și WhatsApp</h4><p>Un buton și clientul vă sună sau vă scrie, fără să caute numărul.</p></div>
+      <div class="f"><div class="ic">⚡</div><h4>Rapid</h4><p>Se încarcă repede și pe date mobile, chiar și unde semnalul e slab.</p></div>
+      <div class="f"><div class="ic">🗺️</div><h4>Hartă și program</h4><p>Adresa, harta Google și programul, la vedere.</p></div>
+      <div class="f"><div class="ic">🌍</div><h4>Și în engleză</h4><p>Dacă aveți turiști, site-ul poate avea și varianta în engleză.</p></div>
+      <div class="f"><div class="ic">🚀</div><h4>Pus online</h4><p>Îl public eu și îl leg de domeniul vostru (.ro), dacă vreți unul.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Prețuri orientative</h2>
+    <p class="sub">Prețul exact îl stabilim după ce vorbim despre ce aveți nevoie.</p>
+    <div class="prices">
+      <div class="pr">
+        <h4>Pagină de prezentare</h4>
+        <div class="amt">de la 15 $</div>
+        <ul><li>O singură pagină</li><li>Arată bine pe telefon</li><li>Secțiune de contact</li></ul>
+      </div>
+      <div class="pr">
+        <h4>Site de afacere</h4>
+        <div class="amt">de la 60 $</div>
+        <ul><li>Până la 4 pagini</li><li>Formular de contact</li><li>Buton WhatsApp și rețele sociale</li></ul>
+      </div>
+      <div class="pr top">
+        <h4>Site complet</h4>
+        <div class="amt">de la 120 $</div>
+        <ul><li>Până la 7 pagini</li><li>Design făcut pentru voi</li><li>SEO de bază</li><li>Publicat online, cu domeniul vostru</li></ul>
+      </div>
+    </div>
+    <p class="note">Domeniul (.ro) se plătește separat, cam 100 de lei pe an, direct de voi. Găzduirea poate fi gratuită.</p>
+  </div>
+</section>
+
+<section id="contact" class="contact what">
+  <div class="wrap">
+    <h2>Hai să vorbim</h2>
+    <p class="sub">Spuneți-mi ce afacere aveți și ce v-ar trebui. Răspund repede.</p>
+    <div class="gigs">
+      <a class="gig" href="https://www.fiverr.com/falkyi/create-a-modern-responsive-website-or-landing-page-for-your-business" target="_blank" rel="noopener">
+        <b>Site nou pentru afacerea ta →</b>
+        <span>Comandă pe Fiverr, cu plată sigură</span>
+      </a>
+      <a class="gig" href="https://www.fiverr.com/falkyi/fix-finish-and-optimize-your-ai-generated-website" target="_blank" rel="noopener">
+        <b>Repar site-uri făcute cu AI →</b>
+        <span>ChatGPT, Claude, Gemini și altele</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Andrei · Petrila, Valea Jiului · <a href="/">OddCllaw Games</a></div>
+</footer>
+
+</body>
+</html>
