@@ -88,6 +88,14 @@
   .famphoto figcaption{font:12px system-ui,sans-serif;color:var(--muted);text-align:right;margin-top:6px}
   @media(max-width:700px){.about-grid{grid-template-columns:1fr}.photo{aspect-ratio:16/10}}
 
+  /* video band */
+  .vband{position:relative;padding:0;height:clamp(420px,78vh,620px);overflow:hidden;background:#3a2412 url(livada-poster.jpg) center/cover}
+  .vband video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .vband::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,18,8,.72),rgba(30,18,8,.1) 55%)}
+  .vband-txt{position:absolute;left:0;right:0;bottom:0;z-index:1;max-width:860px;margin:0 auto;padding:0 22px 40px;color:#fff}
+  .vband-txt h2{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+  .vband-txt p{font-size:18px;opacity:.92}
+  @media(prefers-reduced-motion:reduce){.vband video{display:none}}
   /* menu */
   .menu{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .menu-card{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 24px;
@@ -266,6 +274,7 @@
   EDIT-PROGRAM    orarul pe zile (tabelul de la Contact)
   EDIT-PROGRAM-SCURT  rândul „Marți – Duminică” din banda de sus
   EDIT-DESPRE     textul „Despre noi” și poza de familie
+  EDIT-VIDEO      banda cu clipul din livadă (între Povestea noastră și Meniu)
   EDIT-POZE-COPII secțiunea pentru copii (aici vin pozele)
   EDIT-RECENZII   nota de pe Google și numărul de recenzii
   EDIT-ADRESA     adresa și linkul de hartă
@@ -312,6 +321,17 @@
       <p data-i18n="a_p11">O poveste începută cu vacile Jersey, crescută prin muncă și transformată într-un loc unde vrem să împărțim cu oamenii ceea ce iubim cel mai mult: gustul autentic al vieții de la țară.</p>
       <p class="slogan" data-i18n="a_slogan">Sus în Deal – liniștea de la țară, pusă pe masă. 🌿🐄❤️</p>
     </div>
+  </div>
+</section>
+
+<!-- EDIT-VIDEO: banda cu livada (livada.mp4 + poza livada-poster.jpg). Textul: v_h și v_p (engleza la EDIT-EN) -->
+<section class="vband" aria-label="Livada fermei">
+  <video autoplay muted loop playsinline preload="metadata" poster="livada-poster.jpg" aria-hidden="true">
+    <source src="livada.mp4" type="video/mp4">
+  </video>
+  <div class="vband-txt">
+    <h2 data-i18n="v_h">Ce punem pe masă crește aici</h2>
+    <p data-i18n="v_p">Livada și grădina noastră, sus pe deal.</p>
   </div>
 </section>
 
@@ -451,6 +471,7 @@
     a_p10:"Because this is our story.",
     a_p11:"A story that began with Jersey cows, grew through hard work and became a place where we want to share with people what we love most: the authentic taste of country life.",
     a_slogan:"Sus în Deal – the peace of the countryside, served at the table. 🌿🐄❤️",
+    v_h:"What we put on the table grows here", v_p:"Our orchard and garden, up on the hill.",
     m_eb:"Today's menu", m_h:"What's on the table today", m_sub:"Like any local food spot, we cook a few dishes a day, depending on the season and what we have fresh.",
     // EDIT-MENIU-EN: d1…d5 sunt felurile, în ordinea din pagină. Fel nou = cheie nouă (d6) aici + data-i18n="d6" pe rândul lui din pagină.
     m_c1:"Soups", d1:"Bean soup with smoked meat<small>with red onion and homemade bread</small>", d2:"Meatball soup<small>soured with borș</small>",
