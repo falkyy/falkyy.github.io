@@ -80,6 +80,10 @@
         display:flex;align-items:flex-end;padding:16px;color:#fff;font:600 13px/1.4 system-ui,sans-serif}
   .photo::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.06) 0 18px,transparent 18px 36px)}
   .photo span{position:relative;background:rgba(0,0,0,.35);padding:6px 10px;border-radius:8px}
+  .story{max-width:640px;margin:26px auto 0}
+  .story p{font-size:18px;margin-bottom:14px}
+  .story .hl{font-size:clamp(21px,4.6vw,25px);font-weight:700;color:var(--bark);line-height:1.3;margin:26px 0 16px}
+  .story .slogan{text-align:center;font-style:italic;font-size:clamp(20px,4.4vw,24px);color:var(--bark);margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
   .famphoto{margin:0}.famphoto img{width:100%;display:block;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
   .famphoto figcaption{font:12px system-ui,sans-serif;color:var(--muted);text-align:right;margin-top:6px}
   @media(max-width:700px){.about-grid{grid-template-columns:1fr}.photo{aspect-ratio:16/10}}
@@ -279,20 +283,35 @@
   </div>
 </div>
 
-<!-- EDIT-DESPRE: cele trei paragrafe și poza familia.jpg (engleza: a_p1, a_p2, a_p3 la EDIT-EN) -->
+<!-- EDIT-DESPRE: textul „Despre noi” (de la Adela) și poza familia.jpg. Engleza: cheile a_p1…a_p11, a_hl1, a_hl2, a_slogan la EDIT-EN -->
 <section id="despre">
   <div class="wrap">
     <div class="eyebrow" data-i18n="a_eb">Despre noi</div>
-    <h2 data-i18n="a_h">La noi mănânci ca la bunica</h2>
+    <h2 data-i18n="a_h">Povestea noastră</h2>
     <div class="about-grid">
       <div>
-        <p data-i18n="a_p1">Suntem o familie din Petrila și am deschis porțile casei pentru cei care vor să guste mâncarea adevărată a Văii Jiului, nu cea de restaurant.</p>
-        <p data-i18n="a_p2">Nu avem meniu lung. Gătim puține feluri în fiecare zi, dar le gătim bine, din ingrediente proaspete. Vii la noi ca în vizită: te așezi, te relaxezi și pleci sătul.</p>
-        <p data-i18n="a_p3">Copiii sunt bineveniți, iar locul e liniștit, cu priveliște spre munte.</p>
+        <p data-i18n="a_p1">Povestea noastră a început simplu, din dragoste pentru sat, pentru animale și pentru gustul adevărat al lucrurilor făcute cu mâna și cu sufletul.</p>
+        <p data-i18n="a_p2">Totul a prins rădăcini odată cu vacile noastre Jersey. Le-am ales cu grijă și, încet-încet, am început să descoperim cât de frumos este să ai grijă de animale, să le vezi crescând și să știi că laptele pe care îl obții vine dintr-un loc în care fiecare zi începe cu muncă, răbdare și dragoste.</p>
       </div>
       <figure class="famphoto"><img src="familia.jpg" alt="Familia de la Mica Fermă, în port popular" loading="lazy"><figcaption>Foto: MDimage</figcaption></figure>
-</div>
-<figure class="wide-ph"><img src="sala-mese.webp" width="1600" height="1200" alt="Sala de mese de la Mica Fermă, cu bănci lungi din lemn și tavan din bârne" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="story">
+      <p data-i18n="a_p3">Din laptele lor am început să facem produse pentru familia noastră: lapte, iaurt, brânză și alte bunătăți pregătite cât mai simplu și cât mai natural. Iar când cei care ne treceau pragul au început să ne întrebe dacă pot lua și ei acasă din produsele noastre, ne-am dat seama că ceea ce facem poate ajunge și pe mesele altor familii.</p>
+      <p class="hl" data-i18n="a_hl1">Așa s-a născut Punctul Gastronomic Local „Sus în Deal”.</p>
+      <p data-i18n="a_p4">Nu am vrut să facem un restaurant. Am vrut să deschidem poarta gospodăriei noastre și să le oferim oamenilor o bucățică din viața de la țară: mâncare făcută cu ingrediente pe care le cunoaștem, produse pregătite cu grijă și gusturi pe care mulți le mai țin minte din copilărie.</p>
+    </div>
+    <figure class="wide-ph"><img src="sala-mese.webp" width="1600" height="1200" alt="Sala de mese de la Mica Fermă, cu bănci lungi din lemn și tavan din bârne" loading="lazy" decoding="async"></figure>
+    <div class="story">
+      <p class="hl" data-i18n="a_hl2">Pentru noi, Sus în Deal înseamnă mai mult decât mâncare.</p>
+      <p data-i18n="a_p5">Înseamnă vacile care ne așteaptă dimineața la grajd, mirosul de fân, laptele proaspăt, brânza făcută cu răbdare, o masă întinsă pentru oameni dragi, copiii care aleargă prin curte și liniștea pe care numai satul o poate oferi.</p>
+      <p data-i18n="a_p6">Am pornit de la câteva vaci Jersey și de la dorința de a face ceva bun pentru familia noastră. Astăzi, încercăm să ducem mai departe aceeași idee: să punem pe masa oamenilor produse cât mai naturale, făcute cu grijă și cu respect pentru munca de la țară.</p>
+      <p data-i18n="a_p7">Și poate cel mai important lucru este că tot ceea ce facem poartă o parte din noi.</p>
+      <p data-i18n="a_p8">Suntem o familie de momârlani, legați de locurile noastre, de tradiții și de munca pământului. Nu pretindem că avem cea mai mare fermă sau cea mai sofisticată gospodărie. Avem însă ceva ce nu vrem să pierdem niciodată: gustul lucrurilor făcute cu suflet.</p>
+      <p data-i18n="a_p9">Aici, la Sus în Deal, ne dorim ca fiecare om care ne trece pragul să plece nu doar cu burta plină, ci și cu o amintire frumoasă.</p>
+      <p data-i18n="a_p10">Pentru că aceasta este povestea noastră.</p>
+      <p data-i18n="a_p11">O poveste începută cu vacile Jersey, crescută prin muncă și transformată într-un loc unde vrem să împărțim cu oamenii ceea ce iubim cel mai mult: gustul autentic al vieții de la țară.</p>
+      <p class="slogan" data-i18n="a_slogan">Sus în Deal – liniștea de la țară, pusă pe masă. 🌿🐄❤️</p>
+    </div>
   </div>
 </section>
 
@@ -417,10 +436,21 @@
     lead:"A family business up on the hill above Petrila. We cook with what we grow ourselves and buy from local people, and the menu changes with the seasons.",
     book:"📞 Book a table", rating:"4.9 on Google · over 100 reviews",
     s_prog:"Opening hours", s_days:"Tuesday – Sunday", s_res:"Bookings", s_pay:"Payment", s_payv:"Cash or bank transfer",
-    a_eb:"About us", a_h:"Eat like at grandma's",
-    a_p1:"We are a family from Petrila, and we have opened our gates to everyone who wants to taste the real food of the Jiu Valley, not restaurant food.",
-    a_p2:"Our menu is short. We cook only a few dishes each day, but we cook them well, from fresh ingredients. Come as our guest: sit down, relax and leave full.",
-    a_p3:"Children are welcome, and the place is quiet, with a view of the mountains.",
+    a_eb:"About us", a_h:"Our story",
+    a_p1:"Our story began simply, out of love for the village, for animals and for the real taste of things made by hand and with heart.",
+    a_p2:"It all took root with our Jersey cows. We chose them carefully and, little by little, we discovered how beautiful it is to care for animals, to watch them grow and to know that the milk we get comes from a place where every day begins with work, patience and love.",
+    a_p3:"From their milk we started making products for our own family: milk, yogurt, cheese and other good things, prepared as simply and naturally as possible. And when the people who came by started asking whether they could take some of our products home too, we realised that what we make could reach other families' tables as well.",
+    a_hl1:"That is how the Local Food Spot „Sus în Deal” was born.",
+    a_p4:"We didn't want to open a restaurant. We wanted to open the gate of our homestead and offer people a piece of country life: food made with ingredients we know, products prepared with care and flavours many people still remember from childhood.",
+    a_hl2:"For us, Sus în Deal means more than food.",
+    a_p5:"It means the cows waiting for us in the barn every morning, the smell of hay, fresh milk, cheese made with patience, a table laid for dear people, children running around the yard and the peace that only the village can give.",
+    a_p6:"We started with a few Jersey cows and the wish to do something good for our family. Today we try to carry the same idea forward: to put on people's tables products that are as natural as possible, made with care and with respect for the work of the countryside.",
+    a_p7:"And perhaps the most important thing is that everything we make carries a part of us.",
+    a_p8:"We are a family of momârlani, the old local people of the Jiu Valley, bound to our places, our traditions and the work of the land. We don't claim to have the biggest farm or the fanciest homestead. But we have something we never want to lose: the taste of things made with heart.",
+    a_p9:"Here at Sus în Deal, we want everyone who walks through our gate to leave not just with a full stomach, but with a beautiful memory too.",
+    a_p10:"Because this is our story.",
+    a_p11:"A story that began with Jersey cows, grew through hard work and became a place where we want to share with people what we love most: the authentic taste of country life.",
+    a_slogan:"Sus în Deal – the peace of the countryside, served at the table. 🌿🐄❤️",
     m_eb:"Today's menu", m_h:"What's on the table today", m_sub:"Like any local food spot, we cook a few dishes a day, depending on the season and what we have fresh.",
     // EDIT-MENIU-EN: d1…d5 sunt felurile, în ordinea din pagină. Fel nou = cheie nouă (d6) aici + data-i18n="d6" pe rândul lui din pagină.
     m_c1:"Soups", d1:"Bean soup with smoked meat<small>with red onion and homemade bread</small>", d2:"Meatball soup<small>soured with borș</small>",
