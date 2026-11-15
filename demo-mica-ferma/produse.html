@@ -71,7 +71,38 @@
   .callbar a{flex:1;display:block;text-align:center;background:var(--red);color:#fff;text-decoration:none;font:700 17px/1 system-ui,sans-serif;padding:17px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
   .callbar a.w{background:#25d366;flex:0 0 auto;padding:17px 20px}
   @media(max-width:700px){.callbar{display:flex}}
-  @media(prefers-reduced-motion:reduce){.btn{transition:none}}
+  /* cantități pe carduri */
+  .qty{display:flex;align-items:center;gap:8px;margin-top:14px}
+  .qty button{width:46px;height:46px;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--bark);font:700 24px/1 system-ui,sans-serif;cursor:pointer;transition:background .15s ease-out,transform .1s ease-out}
+  .qty button:hover{background:var(--paper)}
+  .qty button:active{transform:scale(.92)}
+  .qty button:disabled{opacity:.35;cursor:default;transform:none}
+  .qty button.plus{background:var(--red);border-color:var(--red);color:#fff}
+  .qty button.plus:hover{filter:brightness(1.08)}
+  .qty output{min-width:84px;text-align:center;font:700 17px/1 system-ui,sans-serif;color:var(--bark)}
+  .qty output.zero{color:var(--muted);font-weight:500}
+  .card.picked{border-color:var(--red);box-shadow:0 0 0 2px var(--red),0 8px 24px rgba(74,47,24,.08)}
+
+  /* formularul de comandă */
+  .order{text-align:left}
+  .order h2,.order>p{text-align:center}
+  .sum{margin:18px 0 6px;border-radius:14px;padding:14px 16px;font:16px/1.5 system-ui,sans-serif}
+  .sum.empty{border:2px dashed var(--line);color:var(--muted);text-align:center}
+  .sum.full{background:#fff;border:1px solid var(--line)}
+  .sum .row{display:flex;justify-content:space-between;gap:10px;padding:4px 0}
+  .sum .tot{border-top:1px solid var(--line);margin-top:6px;padding-top:8px;font-weight:700;color:var(--bark)}
+  .sum .tot small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+  .fld{display:block;margin-top:12px;font:600 15px/1.3 system-ui,sans-serif;color:var(--bark)}
+  .fld input,.fld textarea{display:block;width:100%;margin-top:6px;font:16px/1.4 system-ui,sans-serif;padding:12px 14px;min-height:48px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);transition:border-color .15s ease-out}
+  .fld input:focus,.fld textarea:focus{outline:none;border-color:var(--green)}
+  .fld input.bad{border-color:var(--red);background:#fff6f5}
+  .order .err{margin-top:12px;background:#fff1ef;border:1px solid #f0b8b0;color:#8a231c;border-radius:12px;padding:10px 14px;font:600 15px/1.45 system-ui,sans-serif}
+  .btn.send{width:100%;justify-content:center;margin-top:16px;font-size:17px;padding:17px 18px;border:0;cursor:pointer}
+  .okmsg{margin-top:12px;background:#eef8ee;border:1px solid #b9dfb9;color:#1f5a26;border-radius:12px;padding:12px 14px;font:15px/1.5 system-ui,sans-serif}
+  .okmsg a{display:inline-block;margin-top:4px;color:#1f5a26;font-weight:700}
+  .alt{margin-top:14px;text-align:center;font:15px/1.5 system-ui,sans-serif;color:var(--muted)}
+  .alt a{color:var(--bark);font-weight:700;white-space:nowrap}
+  @media(prefers-reduced-motion:reduce){.btn,.qty button,.fld input,.fld textarea{transition:none}}
 </style>
 </head>
 <body>
@@ -98,29 +129,40 @@
   <div class="grid">
     <article class="card"><img src="p-telemea.webp" width="800" height="553" alt="Telemea de vacă" loading="lazy">
       <div class="b"><h2 data-i18n="p1h">Telemea de vacă</h2><p data-i18n="p1p">Brânză albă, sărată, făcută din laptele nostru.</p>
-        <div class="price"><b>36</b><span data-i18n="u_kg">lei / kg</span></div></div></article>
+        <div class="price"><b>36</b><span data-i18n="u_kg">lei / kg</span></div><div class="qty" data-i="0"></div></div></article>
     <article class="card"><img src="p-unt.webp" width="800" height="800" alt="Unt de casă în caserolă" loading="lazy">
       <div class="b"><h2 data-i18n="p2h">Unt de casă</h2><p data-i18n="p2p">Unt bătut din smântâna laptelui de Jersey.</p>
-        <div class="price"><b>25</b><span data-i18n="u_250">lei / 250 g</span></div></div></article>
+        <div class="price"><b>25</b><span data-i18n="u_250">lei / 250 g</span></div><div class="qty" data-i="1"></div></div></article>
     <article class="card"><img src="p-lapte.webp" width="800" height="1067" alt="Sticle cu lapte proaspăt de vacă" loading="lazy">
       <div class="b"><h2 data-i18n="p3h">Lapte de vacă</h2><p data-i18n="p3p">Lapte proaspăt, de la vacile noastre Jersey.</p>
         <span class="tag" data-i18n="p3t">Vaci Jersey · 5,5% grăsime</span>
-        <div class="price"><b>9</b><span data-i18n="u_l">lei / litru</span></div></div></article>
+        <div class="price"><b>9</b><span data-i18n="u_l">lei / litru</span></div><div class="qty" data-i="2"></div></div></article>
     <article class="card"><img src="p-iaurt.webp" width="800" height="402" alt="Găleți cu iaurt de casă Sus în Deal" loading="lazy">
       <div class="b"><h2 data-i18n="p4h">Iaurt de casă</h2><p data-i18n="p4p">Iaurt gros, făcut în casă din lapte integral.</p>
-        <div class="price"><b>18</b><span data-i18n="u_kg">lei / kg</span></div></div></article>
+        <div class="price"><b>18</b><span data-i18n="u_kg">lei / kg</span></div><div class="qty" data-i="3"></div></div></article>
   </div>
 
-  <section class="order">
-    <h2 data-i18n="o_h">Comandă sau întreabă ce avem azi</h2>
-    <p data-i18n="o_p">Sunați-ne sau scrieți-ne pe WhatsApp și vă pregătim produsele.</p>
-    <div class="cta">
-      <a class="btn primary" href="tel:+40721963892" data-i18n="o_call">📞 Sună: 0721 963 892</a>
-      <a class="btn wa" href="#" target="_blank" rel="noopener" data-wa><img src="wa.png" alt="" width="20" height="20" style="display:block"> WhatsApp</a>
-    </div>
+  <!-- Comanda: site-ul nu are server, așa că formularul deschide WhatsApp cu comanda scrisă (la 0721 963 892). -->
+  <section class="order" id="comanda">
+    <h2 data-i18n="o_h">Comandă direct de pe site</h2>
+    <p data-i18n="o_p">Alegeți cantitățile cu + și − de pe fiecare produs, scrieți-vă numele și trimiteți comanda. Vă confirmăm noi pe WhatsApp sau la telefon.</p>
+    <div class="sum" id="o-sum" aria-live="polite"></div>
+    <form id="o-form" novalidate>
+      <label class="fld"><span data-i18n="o_name">Numele dvs.</span>
+        <input id="o-name" name="name" autocomplete="name" maxlength="60"></label>
+      <label class="fld"><span data-i18n="o_tel">Telefon (opțional)</span>
+        <input id="o-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" maxlength="20"></label>
+      <label class="fld"><span data-i18n="o_note">Observații (opțional)</span>
+        <textarea id="o-note" name="note" rows="2" maxlength="300"></textarea></label>
+      <p class="err" id="o-err" role="alert" hidden></p>
+      <button class="btn wa send" type="submit"><img src="wa.png" alt="" width="22" height="22" style="display:block"> <span data-i18n="o_send">Trimite comanda pe WhatsApp</span></button>
+      <div class="okmsg" id="o-ok" hidden><b data-i18n="o_ok1">S-a deschis WhatsApp cu comanda scrisă.</b> <span data-i18n="o_ok2">Apăsați „Trimite” acolo ca să ajungă la noi.</span>
+        <a id="o-again" href="#" target="_blank" rel="noopener" data-i18n="o_again">Nu s-a deschis? Apăsați aici.</a></div>
+    </form>
+    <p class="alt"><span data-i18n="o_alt">Nu folosiți WhatsApp? Sunați-ne:</span> <a href="tel:+40721963892">0721 963 892</a></p>
   </section>
 
-  <p class="more" data-i18n="more">Mai avem și slănină, cârnați și alte bunătăți din gospodărie. Pentru alte produse nu ezitați să ne <a href="tel:+40721963892">sunați</a>.</p>
+  <p class="more" data-i18n="more">Pentru alte produse nu ezitați să ne <a href="tel:+40721963892">contactați</a>.</p>
 
   <div class="info">
     <span data-i18n="pay">💳 Plata: numerar sau card</span>
@@ -135,7 +177,7 @@
   <p class="credit"><span data-i18n="f2">Site realizat de</span> <a href="https://falkyy.github.io/site-uri/" target="_blank" rel="noopener">Andrei</a></p>
 </footer>
 
-<div class="callbar"><a href="tel:+40721963892" data-i18n="call">📞 Sună pentru comandă</a><a class="w" href="#" target="_blank" rel="noopener" data-wa aria-label="WhatsApp"><img src="wa.png" alt="" width="24" height="24" style="display:block;margin:auto"></a></div>
+<div class="callbar"><a id="cb-main" href="tel:+40721963892" data-i18n="call">📞 Sună pentru comandă</a><a class="w" href="#" target="_blank" rel="noopener" data-wa aria-label="WhatsApp"><img src="wa.png" alt="" width="24" height="24" style="display:block;margin:auto"></a></div>
 
 <script>
 (function(){
@@ -150,18 +192,87 @@
     p3h:"Cow's milk", p3p:"Fresh milk from our Jersey cows.", p3t:"Jersey cows · 5.5% fat",
     p4h:"Homemade yogurt", p4p:"Thick yogurt, homemade from whole milk.",
     u_kg:"lei / kg", u_250:"lei / 250 g", u_l:"lei / litre",
-    o_h:"Order, or ask what we have today", o_p:"Call us or message us on WhatsApp and we will get your products ready.",
-    o_call:"📞 Call: 0721 963 892",
-    more:"We also have bacon, sausages and other homemade treats. For other products, feel free to <a href=\"tel:+40721963892\">call us</a>.",
+    o_h:"Order straight from the site", o_p:"Choose the amounts with + and − on each product, write your name and send the order. We will confirm it on WhatsApp or by phone.",
+    o_name:"Your name", o_tel:"Phone (optional)", o_note:"Notes (optional)", o_send:"Send the order on WhatsApp",
+    o_ok1:"WhatsApp opened with your order written in.", o_ok2:"Press “Send” there so it reaches us.", o_again:"Didn't open? Tap here.",
+    o_alt:"Don't use WhatsApp? Call us:",
+    more:"For other products, feel free to <a href=\"tel:+40721963892\">contact us</a>.",
     pay:"💳 Payment: cash or card", prog:"🕒 Opening hours and address",
     f1:"Local Food Spot · Strada Taia 101, Petrila", f_tel:"Phone", f2:"Website by", call:"📞 Call to order"
   };
+  // EDIT-PRODUSE: prețul, pasul (cu cât crește la +) și unitatea, în aceeași ordine ca în cardurile de sus.
+  var PROD=[
+    {n:["Telemea de vacă","Cow's milk cheese (telemea)"], price:36, step:0.5, unit:["kg","kg"]},
+    {n:["Unt de casă","Homemade butter"],                  price:25, step:1,   unit:["× 250 g","× 250 g"]},
+    {n:["Lapte de vacă","Cow's milk"],                     price:9,  step:1,   unit:["l","l"]},
+    {n:["Iaurt de casă","Homemade yogurt"],                price:18, step:0.5, unit:["kg","kg"]}
+  ];
+  var MAX=20, qty=[0,0,0,0], lang="ro";
+  function L(ro,en){return lang==="en"?en:ro;}
+  function num(x){var s=(Math.round(x*10)/10).toString();return lang==="en"?s:s.replace(".",",");}
+  function lei(x){return num(x)+" lei";}
+  function renderOrder(){
+    var k=lang==="en"?1:0, rows="", tot=0;
+    [].forEach.call(document.querySelectorAll(".qty"),function(box){
+      var i=+box.getAttribute("data-i"), p=PROD[i], q=qty[i];
+      box.innerHTML='<button type="button" class="minus" aria-label="'+L("Mai puțin","Less")+' – '+p.n[k]+'"'+(q<=0?' disabled':'')+'>−</button>'+
+        '<output class="'+(q?'':'zero')+'" aria-live="polite">'+(q?num(q)+' '+p.unit[k]:L("0 – adaugă","0 – add"))+'</output>'+
+        '<button type="button" class="plus" aria-label="'+L("Mai mult","More")+' – '+p.n[k]+'"'+(q>=MAX?' disabled':'')+'>+</button>';
+      box.closest(".card").classList.toggle("picked",q>0);
+    });
+    PROD.forEach(function(p,i){if(qty[i]>0){var s=qty[i]*p.price;tot+=s;
+      rows+='<div class="row"><span>'+p.n[k]+' · '+num(qty[i])+' '+p.unit[k]+'</span><span>'+lei(s)+'</span></div>';}});
+    var sum=document.getElementById("o-sum");
+    if(!rows){sum.className="sum empty";sum.innerHTML=L("Nu ați ales încă niciun produs. Folosiți butonul <b>+</b> de pe produse.","You haven't chosen anything yet. Use the <b>+</b> button on the products.");}
+    else{sum.className="sum full";sum.innerHTML=rows+'<div class="row tot"><span>'+L("Total estimativ","Estimated total")+'<small>'+
+      L("Brânza se cântărește, așa că suma finală poate varia puțin.","Cheese is sold by weight, so the final amount may vary a little.")+'</small></span><span>'+lei(tot)+'</span></div>';}
+    var cb=document.getElementById("cb-main");
+    if(tot>0){cb.href="#comanda";cb.innerHTML="🧺 "+L("Comanda ta","Your order")+" · "+lei(tot);}
+    else{cb.href="tel:+40721963892";cb.innerHTML=L("📞 Sună pentru comandă","📞 Call to order");}
+    return tot;
+  }
+  document.addEventListener("click",function(e){
+    var b=e.target.closest(".qty button"); if(!b)return;
+    var i=+b.parentNode.getAttribute("data-i"), p=PROD[i];
+    qty[i]=Math.max(0,Math.min(MAX,Math.round((qty[i]+(b.classList.contains("plus")?p.step:-p.step))*10)/10));
+    var cls=b.className; renderOrder();
+    var again=b.parentNode.querySelector("."+cls.split(" ")[0]); if(again&&!again.disabled)again.focus();
+    hideMsgs();
+  });
+  var form=document.getElementById("o-form"), nameIn=document.getElementById("o-name"), err=document.getElementById("o-err"), ok=document.getElementById("o-ok");
+  function hideMsgs(){err.hidden=true;nameIn.classList.remove("bad");}
+  nameIn.addEventListener("input",hideMsgs);
+  form.addEventListener("submit",function(e){
+    e.preventDefault(); ok.hidden=true;
+    var k=lang==="en"?1:0, tot=renderOrder(), name=nameIn.value.trim();
+    if(!qty.some(function(q){return q>0;})){
+      err.innerHTML=L("Alegeți cel puțin un produs: apăsați <b>+</b> pe produsul dorit.","Choose at least one product: press <b>+</b> on the product you want.");
+      err.hidden=false; document.querySelector(".grid").scrollIntoView({behavior:"smooth",block:"start"}); return;
+    }
+    if(name.length<2){
+      err.innerHTML=L("Scrieți-vă numele, ca să știm a cui e comanda.","Please write your name, so we know whose order it is.");
+      err.hidden=false; nameIn.classList.add("bad"); nameIn.focus(); return;
+    }
+    var lines=[L("Bună ziua! Aș dori să comand de la Sus în Deal:","Hello! I would like to order from Sus în Deal:")];
+    PROD.forEach(function(p,i){if(qty[i]>0)lines.push("• "+p.n[k]+": "+num(qty[i])+" "+p.unit[k]+" ("+lei(qty[i]*p.price)+")");});
+    lines.push(L("Total estimativ: ","Estimated total: ")+lei(tot));
+    lines.push(L("Nume: ","Name: ")+name);
+    var tel=document.getElementById("o-tel").value.trim(), note=document.getElementById("o-note").value.trim();
+    if(tel)lines.push(L("Telefon: ","Phone: ")+tel);
+    if(note)lines.push(L("Observații: ","Notes: ")+note);
+    var url="https://wa.me/40721963892?text="+encodeURIComponent(lines.join("\n"));
+    document.getElementById("o-again").href=url;
+    hideMsgs(); ok.hidden=false;
+    window.open(url,"_blank","noopener");
+  });
+
   var els=[].slice.call(document.querySelectorAll("[data-i18n]"));
   els.forEach(function(e){e._ro=e.innerHTML;});
   function set(l){
     els.forEach(function(e){var k=e.getAttribute("data-i18n");e.innerHTML=(l==="en"&&EN[k]!=null)?EN[k]:e._ro;});
     [].forEach.call(document.querySelectorAll("[data-wa]"),function(a){a.href=WA[l];});
     [].forEach.call(document.querySelectorAll(".lang button"),function(b){b.classList.toggle("on",b.getAttribute("data-l")===l);});
+    lang=l; renderOrder();
     document.documentElement.lang=l;
     document.title=l==="en"?"Farm dairy — Sus în Deal, Petrila":"Lactate de la fermă — Sus în Deal, Petrila";
     try{localStorage.setItem("mf_lang",l);}catch(e){}

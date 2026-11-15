@@ -234,8 +234,6 @@
 .mc-big{font:700 54px/1 Georgia,"Times New Roman",serif;letter-spacing:4px;color:var(--teal);margin-top:2px;text-shadow:0 0 14px rgba(255,255,255,.95),0 0 4px #fff}
 .mc-big::before,.mc-big::after{content:"❧";font-size:.5em;vertical-align:middle;margin:0 .45em;letter-spacing:0}
 .mc-big::before{display:inline-block;transform:scaleX(-1)}
-.mc-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px 34px;padding:6px 26px 10px;position:relative}
-.mc-cols::before{content:"";position:absolute;left:50%;top:10px;bottom:10px;border-left:2px solid rgba(90,60,30,.25)}
 .mc-cat{margin:6px 0 10px;display:inline-block;background:var(--teal);color:#f6eedc;font:700 21px/1 Georgia,serif;letter-spacing:1.5px;text-transform:uppercase;padding:11px 26px 10px;
   clip-path:polygon(2% 12%,10% 0,22% 8%,38% 2%,55% 9%,72% 1%,88% 7%,99% 0,97% 30%,100% 55%,97% 82%,99% 100%,84% 93%,66% 100%,48% 92%,30% 100%,14% 93%,0 100%,3% 70%,0 42%)}
 .mc-group{margin-bottom:18px}
@@ -247,12 +245,10 @@
 .mc-it .pr{white-space:nowrap;font-weight:700}
 .mc-it .pr i{font-style:normal;font-weight:400;font-size:13px;margin-left:2px}
 .mc-it.free .pr{font-weight:400;font-style:italic;color:var(--teal)}
-.mc-note{grid-column:1/-1;text-align:center;font:italic 14px/1.4 Georgia,serif;color:#5b5346;padding-top:4px}
+.mc-note{text-align:center;font:italic 14px/1.4 Georgia,serif;color:#5b5346;padding-top:4px}
 .mc-bottom{height:150px;-webkit-mask-image:linear-gradient(transparent,#000 45%);mask-image:linear-gradient(transparent,#000 45%)}
 .mc-bottom img{object-position:center 70%}
 @media(max-width:700px){
-  .mc-cols{grid-template-columns:1fr;padding:4px 16px 8px}
-  .mc-cols::before{display:none}
   .mc-top img{height:150px!important}.mc-title{margin-top:-46px}.mc-script{font-size:48px}.mc-big{font-size:38px}
   .mc-cat{font-size:18px}
   .mc-it{font-size:16px}
@@ -286,6 +282,29 @@
 .shop-teaser b{display:block;font-size:20px;color:var(--bark)}
 .shop-teaser small{display:block;font:15px/1.45 system-ui,sans-serif;color:var(--muted);margin-top:2px}
 @media(prefers-reduced-motion:reduce){.gal-track{scroll-behavior:auto}.shop-teaser,.gal-btn,.gal-dots button::before{transition:none}}
+
+/* meniul pe slide-uri: o categorie pe slide, butoane cu categoriile, glisare, săgeți pe desktop */
+.mc-cols{padding:2px 0 8px}
+.mc-tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 18px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.mc-tabs::-webkit-scrollbar{display:none}
+.mc-tabs button{flex:0 0 auto;min-height:44px;border:2px solid var(--teal);background:rgba(255,255,255,.35);color:var(--teal);font:700 15px/1 Georgia,serif;padding:10px 15px;border-radius:30px;cursor:pointer;transition:background .15s ease-out,color .15s ease-out,transform .1s ease-out}
+.mc-tabs button:hover{background:rgba(255,255,255,.7)}
+.mc-tabs button:active{transform:scale(.96)}
+.mc-tabs button.on{background:var(--teal);color:#f6eedc}
+.mc-tabs button:focus-visible,.mc-arrow:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+@media(min-width:700px){.mc-tabs{flex-wrap:wrap;justify-content:center;overflow:visible}}
+.mc-viewport{position:relative}
+.mc-track{display:flex;align-items:flex-start;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;transition:height .22s ease-out}
+.mc-track::-webkit-scrollbar{display:none}
+.mc-slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;padding:0 22px 6px}
+@media(min-width:700px){.mc-slide{padding:0 90px 6px}}
+.mc-arrow{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:var(--teal);color:#f6eedc;font:700 30px/1 Georgia,serif;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25);display:none;transition:transform .15s ease-out,filter .15s ease-out}
+.mc-arrow.prev{left:16px}.mc-arrow.next{right:16px}
+.mc-arrow:hover{filter:brightness(1.15)}
+.mc-arrow:active{transform:translateY(-50%) scale(.92)}
+.mc-arrow[hidden]{display:none!important}
+@media(hover:hover) and (min-width:700px){.mc-arrow{display:block}}
+@media(prefers-reduced-motion:reduce){.mc-track{transition:none}.mc-tabs button,.mc-arrow{transition:none}}
 </style>
 </head>
 <body>
@@ -547,10 +566,10 @@
       [].forEach.call(d.children,function(x,j){x.classList.toggle("on",j===k);});}
     row.addEventListener("scroll",upd,{passive:true}); upd();
   });
-  // EDIT-MENIU: meniul real (după meniul tipărit, 15.11.2026). Un rând = [nume RO, nume EN, preț în lei, descriere RO, descriere EN].
-  // Prețul poate fi și text (ex: apa „din partea casei”). col: 1 = coloana stângă, 2 = dreapta.
+  // EDIT-MENIU: meniul real (după meniul tipărit, 15.11.2026). O categorie = un slide.
+  // Un rând = [nume RO, nume EN, preț în lei, descriere RO, descriere EN]. Prețul poate fi și text (ex: apa „din partea casei”).
   var MENU=[
-    {col:1, t:["Mâncăruri","Dishes"], it:[
+    {t:["Mâncăruri","Dishes"], it:[
       ["Papă","Papă (cornmeal porridge)",25,"lapte, caș, brânză, smântână, mălai","milk, fresh cheese, cheese, sour cream, cornmeal"],
       ["Cartofi, cârnați, slănină, mujdei","Potatoes, sausages, bacon, garlic sauce",35],
       ["Mămăligă, brânză, ou, cârnați, slănină","Polenta, cheese, egg, sausages, bacon",37],
@@ -559,39 +578,68 @@
       ["Cartofi cu grătar de porc","Potatoes with grilled pork",37],
       ["Varză călită","Braised cabbage",35],
       ["Virșli","Virsli (smoked sausages)",15],
-      ["Burger momârlănesc","Momârlan burger (local style)",40],
+      ["Burger momârlănesc","Momârlan burger (local style)",40]]},
+    {t:["Farfurii și platouri","Plates and platters"], it:[
       ["Farfuria haiducului","The outlaw's plate",50,"cartofi prăjiți, carne de porc, murături, slănină prăjită, brânză, ou, sos","fries, pork, pickles, fried bacon, cheese, egg, sauce"],
       ["Farfuria momârlanului","The momârlan's plate",50,"slănină, cârnați, jumări, usturoi, roșii, castraveți, brânză, ou, ceapă","bacon, sausages, pork cracklings, garlic, tomatoes, cucumbers, cheese, egg, onion"],
       ["Platou cald","Hot platter",170,"cartofi, grătar de porc, slănină, cârnați, brânză, ou, murături","potatoes, grilled pork, bacon, sausages, cheese, egg, pickles"],
-      ["Platou rece","Cold platter",140,"cârnați, slănină, maioș, roșii, castraveți, ceapă, brânză, ou, jumări","sausages, bacon, smoked pork, tomatoes, cucumbers, onion, cheese, egg, pork cracklings"],
+      ["Platou rece","Cold platter",140,"cârnați, slănină, maioș, roșii, castraveți, ceapă, brânză, ou, jumări","sausages, bacon, smoked pork, tomatoes, cucumbers, onion, cheese, egg, pork cracklings"]]},
+    {t:["Ciorbe","Soups"], it:[
       ["Ciorbă de fasole","Bean soup",25],
       ["Ciorbă de cartofi","Potato soup",25],
       ["Ciorbă țărănească","Peasant-style soup",30]]},
-    {col:2, t:["Garnituri / adaosuri","Sides / extras"], it:[
+    {t:["Garnituri / adaosuri","Sides / extras"], it:[
       ["Vinete","Eggplant salad",15],["Iaurt","Yogurt",7],["Ceapă","Onion",5],["Murături","Pickles",5],["Pâine","Bread",5]]},
-    {col:2, t:["Desert","Dessert"], it:[
+    {t:["Desert","Dessert"], it:[
       ["Clătite","Pancakes",10],["Papanași","Papanași (cheese doughnuts)",30],["Prăjitură cu măr","Apple cake",10],["Plăcintă cu brânză","Cheese pie",15]]},
-    {col:2, t:["Băuturi","Drinks"], it:[
+    {t:["Băuturi","Drinks"], it:[
       ["Suc de mere","Apple juice",8],["Sifon","Soda water",2],["Apă","Water",["din partea casei ♡","on the house ♡"]],
       ["Limonadă","Lemonade",10],["Vin","Wine",7],["Țuică","Țuică (plum brandy)",5],["Cafea","Coffee",8],
       ["Caffe latte","Caffe latte",10],["Lapte","Milk",6],["Ciocolată caldă","Hot chocolate",10]]}
   ];
   function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+  var mcCur=0;
   function renderMenu(l){
     var box=document.getElementById("mc-cols"); if(!box)return;
-    var k=l==="en"?1:0, cols={1:"",2:""};
-    MENU.forEach(function(g){
-      var h='<div class="mc-group"><div class="mc-cat">'+esc(g.t[k])+'</div>';
+    var k=l==="en"?1:0, tabs="", slides="";
+    MENU.forEach(function(g,gi){
+      tabs+='<button type="button" role="tab" data-i="'+gi+'">'+esc(g.t[k])+'</button>';
+      var h='<div class="mc-slide" role="tabpanel" aria-label="'+esc(g.t[k])+'"><div class="mc-cat">'+esc(g.t[k])+'</div>';
       g.it.forEach(function(r){
         var pr=r[2], free=typeof pr!=="number";
         var d=r[3]?'<div class="mc-desc">'+esc(l==="en"?r[4]:r[3])+'</div>':"";
         h+='<div class="mc-it'+(free?' free':'')+'"><span class="n">'+esc(r[k])+'</span><span class="ld"></span><span class="pr">'+
            (free?esc(pr[k]):pr+'<i>lei</i>')+'</span></div>'+d;
       });
-      cols[g.col]+=h+'</div>';
+      slides+=h+'</div>';
     });
-    box.innerHTML='<div>'+cols[1]+'</div><div>'+cols[2]+'</div><p class="mc-note">'+
-      (l==="en"?"Prices in lei (RON). Payment: cash or card.":"Prețuri în lei. Plata: numerar sau card.")+'</p>';
+    box.innerHTML='<div class="mc-tabs" role="tablist">'+tabs+'</div>'+
+      '<div class="mc-viewport"><div class="mc-track" id="mc-track">'+slides+'</div>'+
+      '<button class="mc-arrow prev" type="button" aria-label="'+(l==="en"?"Previous category":"Categoria anterioară")+'">‹</button>'+
+      '<button class="mc-arrow next" type="button" aria-label="'+(l==="en"?"Next category":"Categoria următoare")+'">›</button></div>'+
+      '<p class="mc-note">'+(l==="en"?"Swipe for the other categories · Prices in lei (RON) · Payment: cash or card":"Glisează pentru celelalte categorii · Prețuri în lei · Plata: numerar sau card")+'</p>';
+    wireMenu();
+  }
+  function wireMenu(){
+    var tr=document.getElementById("mc-track"), box=document.getElementById("mc-cols");
+    var slides=tr.children, tabs=box.querySelectorAll(".mc-tabs button"), vp=tr.parentNode;
+    var prev=vp.querySelector(".prev"), next=vp.querySelector(".next");
+    function idx(){return Math.round(tr.scrollLeft/slides[0].offsetWidth);}
+    function go(i,instant){i=Math.max(0,Math.min(slides.length-1,i));tr.scrollTo({left:i*slides[0].offsetWidth,behavior:instant?"auto":"smooth"});}
+    function upd(){
+      var i=idx(); mcCur=i;
+      [].forEach.call(tabs,function(b,j){var on=j===i;b.classList.toggle("on",on);b.setAttribute("aria-selected",on?"true":"false");
+        if(on&&b.parentNode.scrollWidth>b.parentNode.clientWidth){b.parentNode.scrollTo({left:b.offsetLeft-b.parentNode.clientWidth/2+b.offsetWidth/2,behavior:"smooth"});}});
+      prev.hidden=i<=0; next.hidden=i>=slides.length-1;
+      tr.style.height=slides[i].offsetHeight+"px";       // înălțimea urmează categoria curentă
+    }
+    [].forEach.call(tabs,function(b){b.addEventListener("click",function(){go(+b.getAttribute("data-i"));});});
+    prev.addEventListener("click",function(){go(idx()-1);});
+    next.addEventListener("click",function(){go(idx()+1);});
+    var t; tr.addEventListener("scroll",function(){clearTimeout(t);t=setTimeout(upd,60);},{passive:true});
+    wireMenu.rs=function(){go(mcCur,true);upd();};
+    if(!window._mcRs){window._mcRs=1;window.addEventListener("resize",function(){wireMenu.rs();});}
+    go(mcCur,true); upd();
   }
   renderMenu("ro");
   // slideshow cu mâncare: glisare pe telefon, săgeți pe desktop (ascunse la capete), buline apăsabile
