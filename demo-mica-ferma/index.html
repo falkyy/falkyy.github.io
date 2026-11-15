@@ -3,17 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mica Fermă — Punct Gastronomic Local, Petrila</title>
+<title>Sus în Deal — Punct Gastronomic Local, Petrila</title>
 <meta name="theme-color" content="#5b3a1e">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Mica Fermă – Punct Gastronomic Local, Petrila">
+<meta property="og:title" content="Sus în Deal – Punct Gastronomic Local, Petrila">
 <meta property="og:description" content="Mâncare tradițională, gătită ca acasă. Machetă de site realizată de Andrei.">
 <meta property="og:url" content="https://falkyy.github.io/demo-mica-ferma/">
 <meta property="og:image" content="https://falkyy.github.io/demo-mica-ferma/preview.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
   :root{
     --bark:#4a2f18; --wood:#7a4f2a; --cream:#f8f1e4; --paper:#fffaf1; --red:#a8322b;
@@ -80,22 +82,10 @@
         display:flex;align-items:flex-end;padding:16px;color:#fff;font:600 13px/1.4 system-ui,sans-serif}
   .photo::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.06) 0 18px,transparent 18px 36px)}
   .photo span{position:relative;background:rgba(0,0,0,.35);padding:6px 10px;border-radius:8px}
-  .story{max-width:640px;margin:26px auto 0}
-  .story p{font-size:18px;margin-bottom:14px}
-  .story .hl{font-size:clamp(21px,4.6vw,25px);font-weight:700;color:var(--bark);line-height:1.3;margin:26px 0 16px}
-  .story .slogan{text-align:center;font-style:italic;font-size:clamp(20px,4.4vw,24px);color:var(--bark);margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
   .famphoto{margin:0}.famphoto img{width:100%;display:block;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
   .famphoto figcaption{font:12px system-ui,sans-serif;color:var(--muted);text-align:right;margin-top:6px}
   @media(max-width:700px){.about-grid{grid-template-columns:1fr}.photo{aspect-ratio:16/10}}
 
-  /* video band */
-  .vband{position:relative;padding:0;height:clamp(420px,78vh,620px);overflow:hidden;background:#3a2412 url(livada-poster.jpg) center/cover}
-  .vband video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .vband::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,18,8,.72),rgba(30,18,8,.1) 55%)}
-  .vband-txt{position:absolute;left:0;right:0;bottom:0;z-index:1;max-width:860px;margin:0 auto;padding:0 22px 40px;color:#fff}
-  .vband-txt h2{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.4)}
-  .vband-txt p{font-size:18px;opacity:.92}
-  @media(prefers-reduced-motion:reduce){.vband video{display:none}}
   /* menu */
   .menu{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .menu-card{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 24px;
@@ -232,6 +222,70 @@
 .visit-ph img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:16px;background:var(--line)}
 @media(max-width:560px){.visit-ph{grid-template-columns:1fr}}
 .reviews{background:linear-gradient(rgba(58,36,18,.88),rgba(58,36,18,.88)),url(sala-petrecere.webp) center/cover no-repeat,#3a2412}
+
+/* meniul refăcut după cel tipărit: hârtie veche, vaci sus și jos, benzi albastre ca pensulate */
+.mcard{--teal:#2f5867;margin-top:26px;background:#eadbb9;background-image:radial-gradient(circle at 20% 30%,rgba(255,255,255,.35),transparent 45%),radial-gradient(circle at 80% 70%,rgba(120,80,30,.12),transparent 50%),linear-gradient(#efe2c4,#e3d1a8);border-radius:10px;overflow:hidden;box-shadow:0 14px 36px rgba(74,47,24,.22);color:#2a2a26}
+.mc-top{position:relative}
+.mc-top img{height:190px!important}
+.mc-top img,.mc-bottom img{display:block;width:100%;height:100%;object-fit:cover}
+.mc-top img{object-position:center 65%;-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+.mc-title{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:-58px;padding:0 10px 14px}
+.mc-script{font:400 64px/1 "Great Vibes","Brush Script MT",cursive;color:var(--teal);text-shadow:0 0 14px rgba(255,255,255,.95),0 0 4px #fff}
+.mc-big{font:700 54px/1 Georgia,"Times New Roman",serif;letter-spacing:4px;color:var(--teal);margin-top:2px;text-shadow:0 0 14px rgba(255,255,255,.95),0 0 4px #fff}
+.mc-big::before,.mc-big::after{content:"❧";font-size:.5em;vertical-align:middle;margin:0 .45em;letter-spacing:0}
+.mc-big::before{display:inline-block;transform:scaleX(-1)}
+.mc-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px 34px;padding:6px 26px 10px;position:relative}
+.mc-cols::before{content:"";position:absolute;left:50%;top:10px;bottom:10px;border-left:2px solid rgba(90,60,30,.25)}
+.mc-cat{margin:6px 0 10px;display:inline-block;background:var(--teal);color:#f6eedc;font:700 21px/1 Georgia,serif;letter-spacing:1.5px;text-transform:uppercase;padding:11px 26px 10px;
+  clip-path:polygon(2% 12%,10% 0,22% 8%,38% 2%,55% 9%,72% 1%,88% 7%,99% 0,97% 30%,100% 55%,97% 82%,99% 100%,84% 93%,66% 100%,48% 92%,30% 100%,14% 93%,0 100%,3% 70%,0 42%)}
+.mc-group{margin-bottom:18px}
+.mc-it{display:flex;align-items:baseline;gap:6px;padding:4px 0;font:17px/1.35 Georgia,serif}
+.mc-it .n{flex:0 1 auto}
+.mc-desc{font:italic 14px/1.35 Georgia,serif;color:#5b5346;margin:-2px 0 4px;padding-right:44px}
+.mc-it .n small{display:block;font-style:italic;font-size:14px;color:#5b5346}
+.mc-it .ld{flex:1 1 20px;min-width:16px;border-bottom:2px dotted rgba(60,50,40,.45);transform:translateY(-4px);align-self:flex-end;margin-bottom:6px}
+.mc-it .pr{white-space:nowrap;font-weight:700}
+.mc-it .pr i{font-style:normal;font-weight:400;font-size:13px;margin-left:2px}
+.mc-it.free .pr{font-weight:400;font-style:italic;color:var(--teal)}
+.mc-note{grid-column:1/-1;text-align:center;font:italic 14px/1.4 Georgia,serif;color:#5b5346;padding-top:4px}
+.mc-bottom{height:150px;-webkit-mask-image:linear-gradient(transparent,#000 45%);mask-image:linear-gradient(transparent,#000 45%)}
+.mc-bottom img{object-position:center 70%}
+@media(max-width:700px){
+  .mc-cols{grid-template-columns:1fr;padding:4px 16px 8px}
+  .mc-cols::before{display:none}
+  .mc-top img{height:150px!important}.mc-title{margin-top:-46px}.mc-script{font-size:48px}.mc-big{font-size:38px}
+  .mc-cat{font-size:18px}
+  .mc-it{font-size:16px}
+  .mc-bottom{height:110px}
+}
+
+/* slideshow cu mâncare */
+.gal-h{font-size:clamp(24px,5.5vw,30px);color:var(--bark);margin:40px 0 14px}
+.gal{position:relative}
+.gal-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch;border-radius:16px}
+.gal-track::-webkit-scrollbar{display:none}
+.gal-track img{flex:0 0 100%;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;scroll-snap-align:center;border-radius:16px;background:var(--line)}
+@media(min-width:700px){.gal-track img{flex-basis:calc(50% - 6px)}}
+.gal-btn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--bark);font:700 30px/1 Georgia,serif;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25);display:none;transition:opacity .2s ease-out,transform .15s ease-out}
+.gal-btn.prev{left:10px}.gal-btn.next{right:10px}
+.gal-btn:hover{background:#fff}
+.gal-btn:active{transform:translateY(-50%) scale(.92)}
+.gal-btn:focus-visible,.gal-dots button:focus-visible,.shop-teaser:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.gal-btn[hidden]{display:none!important}
+@media(hover:hover) and (min-width:700px){.gal-btn{display:block}}
+.gal-dots{display:flex;justify-content:center;gap:4px;margin-top:8px;flex-wrap:wrap}
+.gal-dots button{width:26px;height:26px;border:0;background:transparent;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
+.gal-dots button::before{content:"";width:8px;height:8px;border-radius:5px;background:var(--line);transition:width .2s ease-out,background .2s ease-out}
+.gal-dots button.on::before{background:var(--red);width:22px}
+
+/* legătura spre pagina cu lactate */
+.shop-teaser{display:flex;align-items:center;gap:16px;margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px;text-decoration:none;color:var(--ink);box-shadow:0 6px 20px rgba(74,47,24,.08);transition:transform .15s ease-out,box-shadow .15s ease-out}
+.shop-teaser:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(74,47,24,.14)}
+.shop-teaser:active{transform:scale(.99)}
+.shop-teaser img{width:96px;height:96px;object-fit:cover;border-radius:12px;flex:0 0 auto}
+.shop-teaser b{display:block;font-size:20px;color:var(--bark)}
+.shop-teaser small{display:block;font:15px/1.45 system-ui,sans-serif;color:var(--muted);margin-top:2px}
+@media(prefers-reduced-motion:reduce){.gal-track{scroll-behavior:auto}.shop-teaser,.gal-btn,.gal-dots button::before{transition:none}}
 </style>
 </head>
 <body>
@@ -240,11 +294,12 @@
 
 <nav class="nav" id="nav">
   <div class="in">
-    <a class="brand" href="#acasa">Mica Fermă</a>
+    <a class="brand" href="#acasa">Sus în Deal</a>
     <div class="links" id="navlinks">
       <a href="#acasa" data-i18n="n_home">Acasă</a>
       <a href="#despre" data-i18n="a_eb">Despre noi</a>
       <a href="#meniu" data-i18n="n_menu">Meniu</a>
+      <a href="produse.html" data-i18n="n_shop">Produse lactate</a>
       <a href="#copii" data-i18n="n_kids">Pentru copii</a>
       <a href="#vizita" data-i18n="n_contact">Contact</a>
     </div>
@@ -257,11 +312,11 @@
 
   <div class="hero-inner">
     <span class="badge" data-i18n="badge">Punct Gastronomic Local · Petrila</span>
-    <h1>Mica Fermă<em data-i18n="tag">mâncare tradițională, gătită ca acasă</em></h1>
+    <h1>Sus în Deal<em data-i18n="tag">mâncare tradițională, gătită ca acasă</em></h1>
     <p class="lead" data-i18n="lead">O afacere de familie, sus pe deal, deasupra Petrilei. Gătim din ce avem în gospodărie și de la oamenii din zonă, iar meniul se schimbă după sezon.</p>
     <div class="cta">
       <a class="btn primary" href="tel:+40721963892" data-i18n="book">📞 Rezervă o masă</a>
-      <a class="btn wa" href="https://wa.me/40721963892?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20mas%C4%83%20la%20Mica%20Ferm%C4%83." target="_blank" rel="noopener" data-wa><img src="wa.png" alt="" width="20" height="20" style="display:block"> WhatsApp</a>
+      <a class="btn wa" href="https://wa.me/40721963892?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20mas%C4%83%20la%20Sus%20%C3%AEn%20Deal." target="_blank" rel="noopener" data-wa><img src="wa.png" alt="" width="20" height="20" style="display:block"> WhatsApp</a>
     </div>
     <div class="rating"><span class="stars">★★★★★</span> <span data-i18n="rating">4,9 pe Google · peste 100 de recenzii</span></div>
   </div>
@@ -274,7 +329,6 @@
   EDIT-PROGRAM    orarul pe zile (tabelul de la Contact)
   EDIT-PROGRAM-SCURT  rândul „Marți – Duminică” din banda de sus
   EDIT-DESPRE     textul „Despre noi” și poza de familie
-  EDIT-VIDEO      banda cu clipul din livadă (între Povestea noastră și Meniu)
   EDIT-POZE-COPII secțiunea pentru copii (aici vin pozele)
   EDIT-RECENZII   nota de pe Google și numărul de recenzii
   EDIT-ADRESA     adresa și linkul de hartă
@@ -288,81 +342,67 @@
   <div class="wrap">
     <div class="it"><div class="k" data-i18n="s_prog">Program</div><div class="v" data-i18n="s_days">Marți – Duminică</div></div>
     <div class="it"><div class="k" data-i18n="s_res">Rezervări</div><div class="v"><a href="tel:+40721963892">0721 963 892</a></div></div>
-    <div class="it"><div class="k" data-i18n="s_pay">Plata</div><div class="v" data-i18n="s_payv">Numerar sau transfer bancar</div></div>
+    <div class="it"><div class="k" data-i18n="s_pay">Plata</div><div class="v" data-i18n="s_payv">Numerar sau card</div></div>
   </div>
 </div>
 
-<!-- EDIT-DESPRE: textul „Despre noi” (de la Adela) și poza familia.jpg. Engleza: cheile a_p1…a_p11, a_hl1, a_hl2, a_slogan la EDIT-EN -->
+<!-- EDIT-DESPRE: cele trei paragrafe și poza familia.jpg (engleza: a_p1, a_p2, a_p3 la EDIT-EN) -->
 <section id="despre">
   <div class="wrap">
     <div class="eyebrow" data-i18n="a_eb">Despre noi</div>
-    <h2 data-i18n="a_h">Povestea noastră</h2>
+    <h2 data-i18n="a_h">La noi mănânci ca la bunica</h2>
     <div class="about-grid">
       <div>
-        <p data-i18n="a_p1">Povestea noastră a început simplu, din dragoste pentru sat, pentru animale și pentru gustul adevărat al lucrurilor făcute cu mâna și cu sufletul.</p>
-        <p data-i18n="a_p2">Totul a prins rădăcini odată cu vacile noastre Jersey. Le-am ales cu grijă și, încet-încet, am început să descoperim cât de frumos este să ai grijă de animale, să le vezi crescând și să știi că laptele pe care îl obții vine dintr-un loc în care fiecare zi începe cu muncă, răbdare și dragoste.</p>
+        <p data-i18n="a_p1">Suntem o familie din Petrila și am deschis porțile casei pentru cei care vor să guste mâncarea adevărată a Văii Jiului, nu cea de restaurant.</p>
+        <p data-i18n="a_p2">Nu avem meniu lung. Gătim puține feluri în fiecare zi, dar le gătim bine, din ingrediente proaspete. Vii la noi ca în vizită: te așezi, te relaxezi și pleci sătul.</p>
+        <p data-i18n="a_p3">Copiii sunt bineveniți, iar locul e liniștit, cu priveliște spre munte.</p>
       </div>
-      <figure class="famphoto"><img src="familia.jpg" alt="Familia de la Mica Fermă, în port popular" loading="lazy"><figcaption>Foto: MDimage</figcaption></figure>
-    </div>
-    <div class="story">
-      <p data-i18n="a_p3">Din laptele lor am început să facem produse pentru familia noastră: lapte, iaurt, brânză și alte bunătăți pregătite cât mai simplu și cât mai natural. Iar când cei care ne treceau pragul au început să ne întrebe dacă pot lua și ei acasă din produsele noastre, ne-am dat seama că ceea ce facem poate ajunge și pe mesele altor familii.</p>
-      <p class="hl" data-i18n="a_hl1">Așa s-a născut Punctul Gastronomic Local „Sus în Deal”.</p>
-      <p data-i18n="a_p4">Nu am vrut să facem un restaurant. Am vrut să deschidem poarta gospodăriei noastre și să le oferim oamenilor o bucățică din viața de la țară: mâncare făcută cu ingrediente pe care le cunoaștem, produse pregătite cu grijă și gusturi pe care mulți le mai țin minte din copilărie.</p>
-    </div>
-    <figure class="wide-ph"><img src="sala-mese.webp" width="1600" height="1200" alt="Sala de mese de la Mica Fermă, cu bănci lungi din lemn și tavan din bârne" loading="lazy" decoding="async"></figure>
-    <div class="story">
-      <p class="hl" data-i18n="a_hl2">Pentru noi, Sus în Deal înseamnă mai mult decât mâncare.</p>
-      <p data-i18n="a_p5">Înseamnă vacile care ne așteaptă dimineața la grajd, mirosul de fân, laptele proaspăt, brânza făcută cu răbdare, o masă întinsă pentru oameni dragi, copiii care aleargă prin curte și liniștea pe care numai satul o poate oferi.</p>
-      <p data-i18n="a_p6">Am pornit de la câteva vaci Jersey și de la dorința de a face ceva bun pentru familia noastră. Astăzi, încercăm să ducem mai departe aceeași idee: să punem pe masa oamenilor produse cât mai naturale, făcute cu grijă și cu respect pentru munca de la țară.</p>
-      <p data-i18n="a_p7">Și poate cel mai important lucru este că tot ceea ce facem poartă o parte din noi.</p>
-      <p data-i18n="a_p8">Suntem o familie de momârlani, legați de locurile noastre, de tradiții și de munca pământului. Nu pretindem că avem cea mai mare fermă sau cea mai sofisticată gospodărie. Avem însă ceva ce nu vrem să pierdem niciodată: gustul lucrurilor făcute cu suflet.</p>
-      <p data-i18n="a_p9">Aici, la Sus în Deal, ne dorim ca fiecare om care ne trece pragul să plece nu doar cu burta plină, ci și cu o amintire frumoasă.</p>
-      <p data-i18n="a_p10">Pentru că aceasta este povestea noastră.</p>
-      <p data-i18n="a_p11">O poveste începută cu vacile Jersey, crescută prin muncă și transformată într-un loc unde vrem să împărțim cu oamenii ceea ce iubim cel mai mult: gustul autentic al vieții de la țară.</p>
-      <p class="slogan" data-i18n="a_slogan">Sus în Deal – liniștea de la țară, pusă pe masă. 🌿🐄❤️</p>
-    </div>
-  </div>
-</section>
-
-<!-- EDIT-VIDEO: banda cu livada (livada.mp4 + poza livada-poster.jpg). Textul: v_h și v_p (engleza la EDIT-EN) -->
-<section class="vband" aria-label="Livada fermei">
-  <video autoplay muted loop playsinline preload="metadata" poster="livada-poster.jpg" aria-hidden="true">
-    <source src="livada.mp4" type="video/mp4">
-  </video>
-  <div class="vband-txt">
-    <h2 data-i18n="v_h">Ce punem pe masă crește aici</h2>
-    <p data-i18n="v_p">Livada și grădina noastră, sus pe deal.</p>
+      <figure class="famphoto"><img src="familia.jpg" alt="Familia de la Sus în Deal, în port popular" loading="lazy"><figcaption>Foto: MDimage</figcaption></figure>
+</div>
+<figure class="wide-ph"><img src="sala-mese.webp" width="1600" height="1200" alt="Sala de mese de la Sus în Deal, cu bănci lungi din lemn și tavan din bârne" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
 <section class="menu" id="meniu">
   <div class="wrap">
-    <div class="eyebrow" data-i18n="m_eb">Meniul zilei</div>
-    <h2 data-i18n="m_h">Ce găsești azi pe masă</h2>
-    <p class="sub" data-i18n="m_sub">Ca la orice punct gastronomic local, gătim câteva feluri pe zi, după sezon și după ce avem proaspăt.</p>
+    <div class="eyebrow" data-i18n="m_eb">Meniu</div>
+    <h2 data-i18n="m_h">Ce găsești pe masă</h2>
+    <p class="sub" data-i18n="m_sub">Meniul nostru, cu prețurile în lei. Gătim din ce avem în gospodărie, așa că unele feluri pot lipsi în anumite zile.</p>
 
-    <!-- EDIT-MENIU: un rând "dish" = un fel de mâncare.
-         Numele e primul text, descrierea e între <small> și </small>, prețul e în <div class="p"> (ex: 25 lei).
-         Fel nou = copiezi un rând "dish" întreg și îl schimbi; pentru engleză vezi EDIT-MENIU-EN.
-         Când meniul e cel real, șterge rândul cu class="note" de la final. -->
-    <figure class="wide-ph"><img src="masa-traditionala.webp" width="1400" height="1120" alt="Masă cu față de masă brodată, sticle de țuică și un căruț de lemn decorativ" loading="lazy" decoding="async"></figure>
-<div class="menu-card">
-      <div class="course">
-        <h3 data-i18n="m_c1">Ciorbe</h3>
-        <div class="dish"><div data-i18n="d1">Ciorbă de fasole cu afumătură<small>cu ceapă roșie și pâine de casă</small></div><div class="p">— lei</div></div>
-        <div class="dish"><div data-i18n="d2">Ciorbă de perișoare<small>acrită cu borș</small></div><div class="p">— lei</div></div>
+    <!-- EDIT-MENIU: felurile și prețurile sunt în script, jos, la „var MENU” (română și engleză pe același rând). -->
+    <div class="mcard">
+      <div class="mc-top"><img src="vaci-vale.webp" alt="" width="1000" height="750" loading="lazy">
+        <div class="mc-title"><span class="mc-script">Sus în Deal</span><span class="mc-big" data-i18n="m_big">MENIU</span></div>
       </div>
-      <div class="course">
-        <h3 data-i18n="m_c2">Feluri principale</h3>
-        <div class="dish"><div data-i18n="d3">Tochitură cu mămăligă<small>cu ou ochi și brânză de burduf</small></div><div class="p">30 lei</div></div>
-        <div class="dish"><div data-i18n="d4">Sarmale în foi de varză<small>cu smântână și ardei iute</small></div><div class="p">— lei</div></div>
-      </div>
-      <div class="course">
-        <h3 data-i18n="m_c3">Desert</h3>
-        <div class="dish"><div data-i18n="d5">Plăcintă de casă<small>cu mere sau brânză, după zi</small></div><div class="p">— lei</div></div>
-      </div>
-      <p class="note" data-i18n="m_note">Felurile de mai sus sunt doar un exemplu. Meniul real îl puteți actualiza oricând.</p>
+      <div class="mc-cols" id="mc-cols"></div>
+      <div class="mc-bottom"><img src="vaci-ceata.webp" alt="" width="1000" height="750" loading="lazy"></div>
     </div>
+
+    <h3 class="gal-h" data-i18n="g_h">Din bucătăria noastră</h3>
+    <div class="gal" id="gal">
+      <div class="gal-track" id="gal-track">
+        <img src="m-farfurie-ou.webp" width="1100" height="825" alt="Farfurie cu ou ochi, cartofi, carne de porc, brânză și ardei copt" loading="lazy">
+        <img src="m-burger.webp" width="1100" height="825" alt="Burger momârlănesc cu cartofi pe platou de lemn" loading="lazy">
+        <img src="m-papanasi.webp" width="1100" height="825" alt="Papanași cu smântână și dulceață de afine" loading="lazy">
+        <img src="m-ciorba.webp" width="1100" height="825" alt="Ciorbă în castron de lut" loading="lazy">
+        <img src="m-tocana.webp" width="900" height="1200" alt="Tocană de porc cu mămăligă și brânză, pe platou de lemn" loading="lazy">
+        <img src="m-langosi.webp" width="1100" height="825" alt="Lângoși de casă" loading="lazy">
+        <img src="m-platou-rece.webp" width="1100" height="825" alt="Platou rece cu cârnați, slănină și chifteluțe" loading="lazy">
+        <img src="m-desert-pahar.webp" width="1100" height="1467" alt="Desert de casă în pahar" loading="lazy">
+        <img src="m-platou-oua.webp" width="900" height="1200" alt="Platou cu ouă, brânză, roșii, castraveți și ceapă" loading="lazy">
+        <img src="m-platou-gratar.webp" width="900" height="1200" alt="Platouri calde cu grătar, legume și brânză" loading="lazy">
+        <img src="m-burgeri.webp" width="900" height="1200" alt="Burgeri cu cartofi pe platouri de lemn" loading="lazy">
+        <img src="m-masa.webp" width="1100" height="825" alt="Masă cu ciorbă, burger și farfurie tradițională" loading="lazy">
+      </div>
+      <button class="gal-btn prev" type="button" aria-label="Poza anterioară">‹</button>
+      <button class="gal-btn next" type="button" aria-label="Poza următoare">›</button>
+    </div>
+    <div class="gal-dots" id="gal-dots"></div>
+
+    <a class="shop-teaser" href="produse.html">
+      <img src="p-telemea.webp" alt="" width="800" height="553" loading="lazy">
+      <span><b data-i18n="t_h">Lactate de la ferma noastră</b><small data-i18n="t_p">Telemea, unt, lapte și iaurt de la vacile noastre Jersey. Vezi prețurile →</small></span>
+    </a>
   </div>
 </section>
 
@@ -371,9 +411,9 @@
     <div class="eyebrow" data-i18n="w_eb">De ce să urci până la noi</div>
     <h2 data-i18n="w_h">Merită drumul</h2>
     <div class="why">
-      <div class="c fc"><img class="cph" src="farfurie-casa.webp" width="1000" height="750" alt="Farfurie cu carne la tigaie, ou ochi, cartofi prăjiți, murături și ardei copți, cu sos de iaurt cu mărar" loading="lazy" decoding="async"><img class="ic" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2052%2048%22%20shape-rendering%3D%22crispEdges%22%3E%3Crect%20x%3D%2212%22%20y%3D%220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%220%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%220%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%220%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2244%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2244%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3C/svg%3E" alt="" width="52" height="52"><h4 data-i18n="w1h">Gătit de casă</h4><p data-i18n="w1p">Rețete de familie, porții mari, fără grabă.</p></div>
+      <div class="c fc"><img class="cph" src="vaca-jersey.webp" width="1000" height="800" alt="Una dintre vacile Jersey ale fermei, pe pajiște, sub cer senin" loading="lazy" decoding="async"><img class="ic" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2052%2048%22%20shape-rendering%3D%22crispEdges%22%3E%3Crect%20x%3D%2212%22%20y%3D%220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%220%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%220%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%220%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2244%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2244%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3C/svg%3E" alt="" width="52" height="52"><h4 data-i18n="w1h">Gătit de casă</h4><p data-i18n="w1p">Rețete de familie, porții mari, fără grabă.</p></div>
       <div class="c fc"><img class="cph" src="vaci-vale.webp" width="1000" height="750" alt="Vacile fermei pe pășune, cu valea și munții în spate" loading="lazy" decoding="async"><img class="ic" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2052%2040%22%20shape-rendering%3D%22crispEdges%22%3E%3Crect%20x%3D%2240%22%20y%3D%220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2244%22%20y%3D%220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2240%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2244%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2220%22%20y%3D%228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%220%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%220%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%220%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3C/svg%3E" alt="" width="52" height="52"><h4 data-i18n="w2h">Liniște și priveliște</h4><p data-i18n="w2p">Sus pe deal, departe de zgomotul orașului.</p></div>
-      <div class="c fc"><img class="cph" src="sala-petrecere-card.webp" width="1000" height="750" alt="Masa lungă din sala de petreceri, pregătită pentru musafiri" loading="lazy" decoding="async"><img class="ic" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2052%2052%22%20shape-rendering%3D%22crispEdges%22%3E%3Crect%20x%3D%2224%22%20y%3D%220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2244%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2244%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2244%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2244%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3C/svg%3E" alt="" width="52" height="52"><h4 data-i18n="w3h">Ca între ai tăi</h4><p data-i18n="w3p">Vii ca musafir, nu ca client.</p></div>
+      <div class="c fc"><img class="cph" src="vaci-ceata.webp" width="1000" height="750" alt="Vaci Jersey pe pășune dimineața, cu ceață peste vale" loading="lazy" decoding="async"><img class="ic" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2052%2052%22%20shape-rendering%3D%22crispEdges%22%3E%3Crect%20x%3D%2224%22%20y%3D%220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2212%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2216%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2220%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2224%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2228%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%23a8322b%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2232%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2236%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2240%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2244%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2244%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2244%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2244%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%224%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%228%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2216%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2224%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2228%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2232%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2236%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2240%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3Crect%20x%3D%2244%22%20y%3D%2248%22%20width%3D%223.4%22%20height%3D%223.4%22%20fill%3D%22%231c1410%22/%3E%3C/svg%3E" alt="" width="52" height="52"><h4 data-i18n="w3h">Ca între ai tăi</h4><p data-i18n="w3p">Vii ca musafir, nu ca client.</p></div>
     </div>
   </div>
 </section>
@@ -418,7 +458,7 @@
           <tr><td data-i18n="h_tf">Marți – Vineri</td><td>14:00 – 20:00</td></tr>
           <tr><td data-i18n="h_ss">Sâmbătă – Duminică</td><td>12:00 – 20:00</td></tr>
         </table>
-        <div class="cash" data-i18n="cash">💵 <b>Plata: numerar sau transfer bancar.</b></div>
+        <div class="cash" data-i18n="cash">💳 <b>Plata: numerar sau card.</b></div>
       </div>
       <div class="box">
         <!-- EDIT-ADRESA: textul adresei și, mai jos, coordonatele din linkul de hartă (destination=...) -->
@@ -430,23 +470,23 @@
       </div>
     </div>
 <div class="visit-ph">
-<img src="intrare-drum.webp" width="1200" height="900" alt="Intrarea în Mica Fermă, cu gardul de lemn, văzută dinspre drum" loading="lazy" decoding="async">
+<img src="intrare-drum.webp" width="1200" height="900" alt="Intrarea la Sus în Deal, cu gardul de lemn, văzută dinspre drum" loading="lazy" decoding="async">
 <img src="colt-foto.webp" width="1000" height="907" alt="Colț pentru poze în grădină, cu o scoarță tradițională, coceni de porumb și dovleci" loading="lazy" decoding="async">
 </div>
 </div>
 </section>
 
 <footer>
-  <div class="name">Mica Fermă</div>
+  <div class="name">Sus în Deal</div>
   <span data-i18n="f1">Punct Gastronomic Local · Strada Taia 101, Petrila</span><br>
   <span data-i18n="s_res">Rezervări</span>: <a href="tel:+40721963892">0721 963 892</a>
   <p class="credit"><span data-i18n="f2">Site realizat de</span> <a href="https://falkyy.github.io/site-uri/" target="_blank" rel="noopener">Andrei</a></p>
 </footer>
 
-<div class="callbar"><a href="tel:+40721963892" data-i18n="call">📞 Sună pentru rezervare</a><a class="w" href="https://wa.me/40721963892?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20mas%C4%83%20la%20Mica%20Ferm%C4%83." target="_blank" rel="noopener" data-wa aria-label="WhatsApp"><img src="wa.png" alt="" width="24" height="24" style="display:block;margin:auto"></a></div>
+<div class="callbar"><a href="tel:+40721963892" data-i18n="call">📞 Sună pentru rezervare</a><a class="w" href="https://wa.me/40721963892?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20mas%C4%83%20la%20Sus%20%C3%AEn%20Deal." target="_blank" rel="noopener" data-wa aria-label="WhatsApp"><img src="wa.png" alt="" width="24" height="24" style="display:block;margin:auto"></a></div>
 <script>
 (function(){
-  var WA={ro:"https://wa.me/40721963892?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20mas%C4%83%20la%20Mica%20Ferm%C4%83.",en:"https://wa.me/40721963892?text=Hello%21%20I%20would%20like%20to%20book%20a%20table%20at%20Mica%20Ferm%C4%83."};
+  var WA={ro:"https://wa.me/40721963892?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20mas%C4%83%20la%20Sus%20%C3%AEn%20Deal.",en:"https://wa.me/40721963892?text=Hello%21%20I%20would%20like%20to%20book%20a%20table%20at%20Sus%20%C3%AEn%20Deal."};
   var EN={
     // EDIT-EN: textele în engleză. Cheia din stânga (ex: d1) e aceeași cu data-i18n="d1" din pagină.
     // Dacă schimbi un text în română și uiți engleza, pe EN rămâne textul vechi.
@@ -455,24 +495,13 @@
     tag:"traditional food, home-cooked",
     lead:"A family business up on the hill above Petrila. We cook with what we grow ourselves and buy from local people, and the menu changes with the seasons.",
     book:"📞 Book a table", rating:"4.9 on Google · over 100 reviews",
-    s_prog:"Opening hours", s_days:"Tuesday – Sunday", s_res:"Bookings", s_pay:"Payment", s_payv:"Cash or bank transfer",
-    a_eb:"About us", a_h:"Our story",
-    a_p1:"Our story began simply, out of love for the village, for animals and for the real taste of things made by hand and with heart.",
-    a_p2:"It all took root with our Jersey cows. We chose them carefully and, little by little, we discovered how beautiful it is to care for animals, to watch them grow and to know that the milk we get comes from a place where every day begins with work, patience and love.",
-    a_p3:"From their milk we started making products for our own family: milk, yogurt, cheese and other good things, prepared as simply and naturally as possible. And when the people who came by started asking whether they could take some of our products home too, we realised that what we make could reach other families' tables as well.",
-    a_hl1:"That is how the Local Food Spot „Sus în Deal” was born.",
-    a_p4:"We didn't want to open a restaurant. We wanted to open the gate of our homestead and offer people a piece of country life: food made with ingredients we know, products prepared with care and flavours many people still remember from childhood.",
-    a_hl2:"For us, Sus în Deal means more than food.",
-    a_p5:"It means the cows waiting for us in the barn every morning, the smell of hay, fresh milk, cheese made with patience, a table laid for dear people, children running around the yard and the peace that only the village can give.",
-    a_p6:"We started with a few Jersey cows and the wish to do something good for our family. Today we try to carry the same idea forward: to put on people's tables products that are as natural as possible, made with care and with respect for the work of the countryside.",
-    a_p7:"And perhaps the most important thing is that everything we make carries a part of us.",
-    a_p8:"We are a family of momârlani, the old local people of the Jiu Valley, bound to our places, our traditions and the work of the land. We don't claim to have the biggest farm or the fanciest homestead. But we have something we never want to lose: the taste of things made with heart.",
-    a_p9:"Here at Sus în Deal, we want everyone who walks through our gate to leave not just with a full stomach, but with a beautiful memory too.",
-    a_p10:"Because this is our story.",
-    a_p11:"A story that began with Jersey cows, grew through hard work and became a place where we want to share with people what we love most: the authentic taste of country life.",
-    a_slogan:"Sus în Deal – the peace of the countryside, served at the table. 🌿🐄❤️",
-    v_h:"What we put on the table grows here", v_p:"Our orchard and garden, up on the hill.",
-    m_eb:"Today's menu", m_h:"What's on the table today", m_sub:"Like any local food spot, we cook a few dishes a day, depending on the season and what we have fresh.",
+    s_prog:"Opening hours", s_days:"Tuesday – Sunday", s_res:"Bookings", s_pay:"Payment", s_payv:"Cash or card",
+    a_eb:"About us", a_h:"Eat like at grandma's",
+    a_p1:"We are a family from Petrila, and we have opened our gates to everyone who wants to taste the real food of the Jiu Valley, not restaurant food.",
+    a_p2:"Our menu is short. We cook only a few dishes each day, but we cook them well, from fresh ingredients. Come as our guest: sit down, relax and leave full.",
+    a_p3:"Children are welcome, and the place is quiet, with a view of the mountains.",
+    m_eb:"Menu", m_h:"What's on the table", m_sub:"Our menu, with prices in lei. We cook with what we have on the farm, so some dishes may be missing on some days.",
+    m_big:"MENU", g_h:"From our kitchen", t_h:"Dairy from our farm", t_p:"Cheese, butter, milk and yogurt from our Jersey cows. See prices →", n_shop:"Dairy products",
     // EDIT-MENIU-EN: d1…d5 sunt felurile, în ordinea din pagină. Fel nou = cheie nouă (d6) aici + data-i18n="d6" pe rândul lui din pagină.
     m_c1:"Soups", d1:"Bean soup with smoked meat<small>with red onion and homemade bread</small>", d2:"Meatball soup<small>soured with borș</small>",
     m_c2:"Main courses", d3:"Tochitură with polenta<small>pork stew with fried egg and sheep cheese</small>", d4:"Sarmale in cabbage leaves<small>with sour cream and hot pepper</small>",
@@ -489,7 +518,7 @@
     k_ph:"Photos of the playground and the animals will appear here.",
     r_eb:"What our guests say", r_h:"Loved by locals and tourists", r_p:"Our Google rating, from over 100 reviews, many from visitors from abroad.", r_btn:"Read the reviews on Google",
     v_eb:"Visit", v_h:"We are waiting for you", h_mon:"Monday", h_closed:"Closed", h_tf:"Tuesday – Friday", h_ss:"Saturday – Sunday",
-    cash:"💵 <b>Payment: cash or bank transfer.</b>",
+    cash:"💳 <b>Payment: cash or card.</b>",
     v_where:"Where to find us", addr:"Strada Taia 101, Petrila<br>Hunedoara County, Romania", maps:"Get directions in Google Maps",
     n_home:"Home", n_menu:"Menu", n_kids:"For kids", n_contact:"Contact",
     f1:"Local Food Spot · Strada Taia 101, Petrila", f2:"Website by", call:"📞 Call to book"
@@ -500,8 +529,9 @@
     els.forEach(function(e){var k=e.getAttribute("data-i18n");e.innerHTML=(l==="en"&&EN[k]!=null)?EN[k]:e._ro;});
     [].forEach.call(document.querySelectorAll("[data-wa]"),function(a){a.href=WA[l];});
     [].forEach.call(document.querySelectorAll(".lang button"),function(b){b.classList.toggle("on",b.getAttribute("data-l")===l);});
+    renderMenu(l);
     document.documentElement.lang=l;
-    document.title=l==="en"?"Mica Fermă — Local Food Spot, Petrila":"Mica Fermă — Punct Gastronomic Local, Petrila";
+    document.title=l==="en"?"Sus în Deal — Local Food Spot, Petrila":"Sus în Deal — Punct Gastronomic Local, Petrila";
     try{localStorage.setItem("mf_lang",l);}catch(e){}
   }
   [].forEach.call(document.querySelectorAll(".lang button"),function(b){b.addEventListener("click",function(){set(b.getAttribute("data-l"));});});
@@ -517,6 +547,69 @@
       [].forEach.call(d.children,function(x,j){x.classList.toggle("on",j===k);});}
     row.addEventListener("scroll",upd,{passive:true}); upd();
   });
+  // EDIT-MENIU: meniul real (după meniul tipărit, 15.11.2026). Un rând = [nume RO, nume EN, preț în lei, descriere RO, descriere EN].
+  // Prețul poate fi și text (ex: apa „din partea casei”). col: 1 = coloana stângă, 2 = dreapta.
+  var MENU=[
+    {col:1, t:["Mâncăruri","Dishes"], it:[
+      ["Papă","Papă (cornmeal porridge)",25,"lapte, caș, brânză, smântână, mălai","milk, fresh cheese, cheese, sour cream, cornmeal"],
+      ["Cartofi, cârnați, slănină, mujdei","Potatoes, sausages, bacon, garlic sauce",35],
+      ["Mămăligă, brânză, ou, cârnați, slănină","Polenta, cheese, egg, sausages, bacon",37],
+      ["Tocană de porc cu mămăligă","Pork stew with polenta",40],
+      ["Mămăligă cu brânză și iaurt","Polenta with cheese and yogurt",30],
+      ["Cartofi cu grătar de porc","Potatoes with grilled pork",37],
+      ["Varză călită","Braised cabbage",35],
+      ["Virșli","Virsli (smoked sausages)",15],
+      ["Burger momârlănesc","Momârlan burger (local style)",40],
+      ["Farfuria haiducului","The outlaw's plate",50,"cartofi prăjiți, carne de porc, murături, slănină prăjită, brânză, ou, sos","fries, pork, pickles, fried bacon, cheese, egg, sauce"],
+      ["Farfuria momârlanului","The momârlan's plate",50,"slănină, cârnați, jumări, usturoi, roșii, castraveți, brânză, ou, ceapă","bacon, sausages, pork cracklings, garlic, tomatoes, cucumbers, cheese, egg, onion"],
+      ["Platou cald","Hot platter",170,"cartofi, grătar de porc, slănină, cârnați, brânză, ou, murături","potatoes, grilled pork, bacon, sausages, cheese, egg, pickles"],
+      ["Platou rece","Cold platter",140,"cârnați, slănină, maioș, roșii, castraveți, ceapă, brânză, ou, jumări","sausages, bacon, smoked pork, tomatoes, cucumbers, onion, cheese, egg, pork cracklings"],
+      ["Ciorbă de fasole","Bean soup",25],
+      ["Ciorbă de cartofi","Potato soup",25],
+      ["Ciorbă țărănească","Peasant-style soup",30]]},
+    {col:2, t:["Garnituri / adaosuri","Sides / extras"], it:[
+      ["Vinete","Eggplant salad",15],["Iaurt","Yogurt",7],["Ceapă","Onion",5],["Murături","Pickles",5],["Pâine","Bread",5]]},
+    {col:2, t:["Desert","Dessert"], it:[
+      ["Clătite","Pancakes",10],["Papanași","Papanași (cheese doughnuts)",30],["Prăjitură cu măr","Apple cake",10],["Plăcintă cu brânză","Cheese pie",15]]},
+    {col:2, t:["Băuturi","Drinks"], it:[
+      ["Suc de mere","Apple juice",8],["Sifon","Soda water",2],["Apă","Water",["din partea casei ♡","on the house ♡"]],
+      ["Limonadă","Lemonade",10],["Vin","Wine",7],["Țuică","Țuică (plum brandy)",5],["Cafea","Coffee",8],
+      ["Caffe latte","Caffe latte",10],["Lapte","Milk",6],["Ciocolată caldă","Hot chocolate",10]]}
+  ];
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+  function renderMenu(l){
+    var box=document.getElementById("mc-cols"); if(!box)return;
+    var k=l==="en"?1:0, cols={1:"",2:""};
+    MENU.forEach(function(g){
+      var h='<div class="mc-group"><div class="mc-cat">'+esc(g.t[k])+'</div>';
+      g.it.forEach(function(r){
+        var pr=r[2], free=typeof pr!=="number";
+        var d=r[3]?'<div class="mc-desc">'+esc(l==="en"?r[4]:r[3])+'</div>':"";
+        h+='<div class="mc-it'+(free?' free':'')+'"><span class="n">'+esc(r[k])+'</span><span class="ld"></span><span class="pr">'+
+           (free?esc(pr[k]):pr+'<i>lei</i>')+'</span></div>'+d;
+      });
+      cols[g.col]+=h+'</div>';
+    });
+    box.innerHTML='<div>'+cols[1]+'</div><div>'+cols[2]+'</div><p class="mc-note">'+
+      (l==="en"?"Prices in lei (RON). Payment: cash or card.":"Prețuri în lei. Plata: numerar sau card.")+'</p>';
+  }
+  renderMenu("ro");
+  // slideshow cu mâncare: glisare pe telefon, săgeți pe desktop (ascunse la capete), buline apăsabile
+  (function(){
+    var tr=document.getElementById("gal-track"); if(!tr)return;
+    var imgs=tr.children, dots=document.getElementById("gal-dots"), g=document.getElementById("gal");
+    var prev=g.querySelector(".prev"), next=g.querySelector(".next");
+    function step(){return imgs[0].offsetWidth+12;}
+    function perView(){return Math.max(1,Math.round(tr.clientWidth/step()));}
+    for(var i=0;i<imgs.length;i++){(function(i){var b=document.createElement("button");b.type="button";b.setAttribute("aria-label","Poza "+(i+1));
+      b.addEventListener("click",function(){tr.scrollTo({left:i*step()});});dots.appendChild(b);})(i);}
+    function upd(){var k=Math.round(tr.scrollLeft/step()),max=imgs.length-perView();
+      [].forEach.call(dots.children,function(b,j){b.classList.toggle("on",j===Math.min(k,max));b.style.display=j>max?"none":"";});
+      prev.hidden=k<=0; next.hidden=k>=max;}
+    prev.addEventListener("click",function(){tr.scrollBy({left:-step()});});
+    next.addEventListener("click",function(){tr.scrollBy({left:step()});});
+    tr.addEventListener("scroll",upd,{passive:true}); window.addEventListener("resize",upd); upd();
+  })();
   var saved=null;try{saved=localStorage.getItem("mf_lang");}catch(e){}
   var l=saved||((navigator.language||"ro").toLowerCase().indexOf("ro")===0?"ro":"en");
   if(l!=="ro")set(l);
